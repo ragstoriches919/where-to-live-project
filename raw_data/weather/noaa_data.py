@@ -1,6 +1,6 @@
 from datetime import datetime
 import matplotlib.pyplot as plt
-from meteostat import Stations, Daily, units
+from meteostat import Stations, Daily, units, Monthly, Hourly
 import pandas as pd
 
 import cfg
@@ -52,18 +52,19 @@ def get_df_weather_for_all_zip_codes():
 def get_df_weather_for_coords(latitude, longitude):
 
     # Time period
-    start = datetime(2010, 1, 1)
-    end = datetime(2020, 12, 31)
+    start = datetime(2020, 1, 1)
+    end = datetime(2020, 1, 5)
 
     # Get closest weather station
     stations = Stations()
     stations = stations.nearby(latitude, longitude)
     stations = stations.inventory('daily', (start, end))
     station = stations.fetch(1)
+    print(station)
 
     # Get daily data
-    df_temps = Daily(station, start, end)
-    df_temps = df_temps.convert(units.imperial)
+    df_temps = Hourly(station, start, end)
+    # df_temps = df_temps.convert(units.imperial)
     df_temps = df_temps.fetch()
     df_temps = df_temps.reset_index()
     df_temps["time"] = pd.to_datetime(df_temps["time"])
@@ -76,7 +77,8 @@ def get_df_weather_for_coords(latitude, longitude):
 
 if __name__ == "__main__":
 
-    df = get_df_weather_for_all_zip_codes()
+    # df = get_df_weather_for_coords(42.7654, -71.4676)
+    # print(df)
 
     df = pd.read_pickle(PICKLE_TEMPERATURE_HISTORICAL)
-    print(df)
+    print(df.loc[df["zip_code"]=="06870"])
