@@ -113,7 +113,7 @@ def get_df_acs_5y_data_raw(year, state_abbrev, zcta=None):
     # Merge zip codes database
     df = pd.merge(df, get_df_zip_codes(), on="zcta")
     df = pd.merge(df, get_df_zcta_to_msa(), on="zcta", how='left')
-    # df = pd.merge(df, fhfa.get_df_fhfa_data(), on="cbsa", how='left')
+    df = pd.merge(df, fhfa.get_df_fhfa_data(), on="cbsa", how='left')
 
     if zcta is not None:
         df = df.loc[df["zip code tabulation area"] == zcta]
@@ -139,4 +139,4 @@ def get_df_acs_5y_data_raw(year, state_abbrev, zcta=None):
 
 
 if __name__ == "__main__":
-    df = get_df_acs_5y_data_raw(2019, "FL")
+    df = get_df_acs_5y_data_raw(2019, "SC")
