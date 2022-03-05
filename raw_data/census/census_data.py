@@ -139,4 +139,4 @@ def get_df_acs_5y_data_raw(year, state_abbrev, zcta=None):
 
 
 if __name__ == "__main__":
-    df = get_df_acs_5y_data_raw(2019, "SC")
+    df = get_df_acs_5y_data_raw(2019, "TX")
