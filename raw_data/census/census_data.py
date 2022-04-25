@@ -9,12 +9,11 @@ import raw_data.fhfa.fhfa_data as fhfa
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 API_KEY_CENSUS = cfg.API_KEY_CENSUS
-CSV_CENSUS_CODES = r"census_codes.csv"
-CSV_STATE_CODES = r"state_codes.csv"
-CSV_ZCTA_TO_MSA = r"ztca_to_msa.csv"
-EXCEL_ZIPCODE_TO_ZCTA = r"ZiptoZcta_Crosswalk_2021.xlsx"
 
-
+CSV_CENSUS_CODES = cfg.CSV_CENSUS_CODES
+CSV_STATE_CODES = cfg.CSV_STATE_CODES
+CSV_ZCTA_TO_MSA = cfg.CSV_ZTCA_TO_MSA
+EXCEL_ZIPCODE_TO_ZCTA = cfg.EXCEL_ZIPCODE_TO_ZCTA
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Helper Functions
@@ -91,15 +90,24 @@ def get_df_census_codes():
 # Work functions
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-def get_df_acs_5y_data_raw(year, state_abbrev, zcta=None):
+def get_df_census_data(census_codes, year, state_abbrev, zcta=None ):
+
+    """
+    Retrieves census data from API based on contents of census_codes param
+    :param census_codes: String Ex.) 'B01001_001E' or 'NAME,GEO_ID,B01001_001E,B25107_001E,B19013_001E'
+    :param year: Integer
+    :param state_abbrev: String Ex.) "CT"
+    :param zcta: String Ex.) "06074"
+    :return: DataFrame
+    """
 
     dsource = 'acs/acs5'
-    cols = 'NAME,GEO_ID,B01001_001E,B25107_001E,B19013_001E'
+
     state_code = get_census_state_code(state_abbrev)
-
     base_url = f'https://api.census.gov/data/{year}/{dsource}'
+    data_url = f'{base_url}?get={census_codes}&for=zip%20code%20tabulation%20area:*&in=state:{state_code}&key={API_KEY_CENSUS}'
+    print(data_url)
 
-    data_url = f'{base_url}?get={cols}&for=zip%20code%20tabulation%20area:*&in=state:{state_code}&key={API_KEY_CENSUS}'
     response = requests.get(data_url).json()
     column_names = response[0]
     data = response[1:]
@@ -113,13 +121,18 @@ def get_df_acs_5y_data_raw(year, state_abbrev, zcta=None):
     # Merge zip codes database
     df = pd.merge(df, get_df_zip_codes(), on="zcta")
     df = pd.merge(df, get_df_zcta_to_msa(), on="zcta", how='left')
-    df = pd.merge(df, fhfa.get_df_fhfa_data(), on="cbsa", how='left')
 
     if zcta is not None:
         df = df.loc[df["zip code tabulation area"] == zcta]
 
-    df['zcta'] = df['zcta'].astype(str).str.zfill(5)
-    df['zip_code'] = df['zip_code'].astype(str).str.zfill(5)
+    return df
+
+
+def get_df_acs_5y_data_raw(year, state_abbrev, zcta=None):
+
+    census_codes = 'NAME,GEO_ID,B01001_001E,B25107_001E,B19013_001E'
+    df = get_df_census_data(census_codes, year, state_abbrev, zcta=zcta)
+    df = pd.merge(df, fhfa.get_df_fhfa_data(), on="cbsa", how='left')
 
     # Drop negative values
     df = df.loc[ (df["house_price_median"].astype(int) > 0) & (df["household_income_median"].astype(int) > 0)]
@@ -139,4 +152,5 @@ def get_df_acs_5y_data_raw(year, state_abbrev, zcta=None):
 
 
 if __name__ == "__main__":
-    df = get_df_acs_5y_data_raw(2019, "TX")
+
+    df = get_df_census_data('NAME,GEO_ID,B01001_001E,B25107_001E,B19013_001E', 2019, "CT")

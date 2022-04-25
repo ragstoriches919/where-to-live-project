@@ -10,5 +10,4 @@ def get_df_fhfa_data():
     return df_fhfa
 
 
-df = get_df_fhfa_data()
-print(df)
+

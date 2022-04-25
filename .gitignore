@@ -1,2 +1,5 @@
 .idea/
 __pycache__/
+raw_data/census/pickled_files/
+raw_data/weather/pickled_files/
+*/test.csv
