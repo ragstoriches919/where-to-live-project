@@ -15,6 +15,8 @@ CSV_STATE_CODES = cfg.CSV_STATE_CODES
 CSV_ZCTA_TO_MSA = cfg.CSV_ZTCA_TO_MSA
 EXCEL_ZIPCODE_TO_ZCTA = cfg.EXCEL_ZIPCODE_TO_ZCTA
 
+PICKLE_POPULATION_ALL_STATES = "pickled_files/pop_all_states.pkl"
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Helper Functions
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -129,6 +131,13 @@ def get_df_census_data(census_codes, year, state_abbrev, zcta=None ):
 
 
 def get_df_acs_5y_data_raw(year, state_abbrev, zcta=None):
+    """
+    Gets ALL data from latest 5y census, combines FHFA data as well.
+    :param year: Integer
+    :param state_abbrev: String Ex.) "CT"
+    :param zcta: String Ex.) "06074"
+    :return: DataFrame
+    """
 
     census_codes = 'NAME,GEO_ID,B01001_001E,B25107_001E,B19013_001E'
     df = get_df_census_data(census_codes, year, state_abbrev, zcta=zcta)
@@ -146,6 +155,46 @@ def get_df_acs_5y_data_raw(year, state_abbrev, zcta=None):
 
     return df
 
+
+def get_df_populations():
+    df = pd.read_csv(cfg.CSV_STATE_CODES)
+    states = df["state_abbrev"].unique()
+    population_census_code = "B01001_001E"
+
+    df_population = None
+
+    for state in states:
+        print("Getting population data for {}".format(state))
+        df_temp = get_df_census_data(population_census_code, 2019, state)
+        if df_population is None:
+            df_population = df_temp
+        else:
+            df_population = pd.concat([df_population, df_temp])
+        df_population["population_total"] = pd.to_numeric(df_population["population_total"])
+        df_population.to_pickle(PICKLE_POPULATION_ALL_STATES)
+
+    return df_population
+
+
+def analyze_population():
+    df_pop = pd.read_pickle(PICKLE_POPULATION_ALL_STATES)
+    df_pop["population_total"] = pd.to_numeric(df_pop["population_total"])
+    df_pop = df_pop.sort_values(by=["population_total"], ascending=False)
+
+    df_pop_sums = df_pop.groupby(["po_name", "state"])["population_total"].sum().reset_index()
+    df_pop_sums = df_pop_sums.sort_values(by=["population_total"], ascending=False)
+
+    df_zip_max = df_pop.groupby(["po_name", "state"])["population_total"].max().reset_index()
+    df_zip_max = pd.merge(df_zip_max, df_pop[["po_name", "state", "zip_code", "population_total"]],
+                          on=["po_name", "state", "population_total"], how='inner')
+    df_zip_max = df_zip_max.drop_duplicates()
+
+    df_zips_to_use_for_weather = pd.merge(df_zip_max[["po_name", "state", "zip_code"]], df_pop_sums[["po_name", "state", "population_total"]])
+    df_zips_to_use_for_weather = df_zips_to_use_for_weather.sort_values(by=["population_total"], ascending=False)
+
+    return df_zips_to_use_for_weather
+
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Main
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -153,4 +202,4 @@ def get_df_acs_5y_data_raw(year, state_abbrev, zcta=None):
 
 if __name__ == "__main__":
 
-    df = get_df_census_data('NAME,GEO_ID,B01001_001E,B25107_001E,B19013_001E', 2019, "CT")
+    analyze_population()

@@ -10,9 +10,9 @@ import cfg
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 NOAA_TOKEN = cfg.NOAA_TOKEN
-CSV_ZIP_CODE_TO_COORDS = r"zip_code_to_coordinates.csv"
-PICKLE_TEMPERATURE_HISTORICAL = r"temperature_historical.pkl"
-PICKLE_TEMPERATURE_HISTORICAL_USING_POINT_DATA = r"temperature_historical_using_points.pkl"
+CSV_ZIP_CODE_TO_COORDS = cfg.CSV_ZIP_CODE_TO_COORDS
+PICKLE_TEMPERATURE_HISTORICAL = r"pickled_files/temperature_historical.pkl"
+PICKLE_TEMPERATURE_HISTORICAL_USING_POINT_DATA = r"pickled_files/temperature_historical_using_points.pkl"
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Helper Functions
@@ -67,7 +67,6 @@ def get_df_weather_for_all_zip_codes(b_point_data=True):
     return df_coords
 
 
-#todo: calc temperature stats by month.
 def get_df_weather_by_station(latitude, longitude, start_datetime, end_datetime):
 
     """
@@ -122,12 +121,19 @@ def get_df_weather_by_coord_point(latitude, longitude, start_datetime, end_datet
     df_temps["time"] = pd.to_datetime(df_temps["time"])
     df_temps["month"] = pd.DatetimeIndex(df_temps['time']).month
 
-    df_avg_temp_by_month = df_temps.groupby(df_temps['month'])['tavg', 'tmax', 'tmin'].mean()
+    df_avg_temp_by_month = df_temps.groupby(df_temps['month'])['tavg', 'tmax', 'tmin'].mean().reset_index()
 
     return df_avg_temp_by_month
 
 
 if __name__ == "__main__":
 
-    get_df_weather_for_all_zip_codes(b_point_data=True)
+    lat = 41.8237
+    long = -72.6212
+    start = datetime(2015, 1, 1)
+    end = datetime(2020, 12, 31)
+
+    df = get_df_weather_by_coord_point(lat, long, start, end)
+
+
 

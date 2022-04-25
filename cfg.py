@@ -8,5 +8,6 @@ ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 CSV_CENSUS_CODES = os.path.join(ROOT_DIR, "helper_data", "census_codes.csv")
 CSV_STATE_CODES = os.path.join(ROOT_DIR, "helper_data", "state_codes.csv")
 CSV_ZTCA_TO_MSA = os.path.join(ROOT_DIR, "helper_data", "ztca_to_msa.csv")
+CSV_ZIP_CODE_TO_COORDS = os.path.join(ROOT_DIR, "helper_data", "zip_code_to_coordinates.csv")
 EXCEL_ZIPCODE_TO_ZCTA = os.path.join(ROOT_DIR, "helper_data", "ZiptoZcta_Crosswalk_2021.xlsx")
 
