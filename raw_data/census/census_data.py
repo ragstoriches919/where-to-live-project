@@ -13,7 +13,8 @@ API_KEY_CENSUS = cfg.API_KEY_CENSUS
 CSV_CENSUS_CODES = cfg.CSV_CENSUS_CODES
 CSV_STATE_CODES = cfg.CSV_STATE_CODES
 CSV_ZCTA_TO_MSA = cfg.CSV_ZTCA_TO_MSA
-EXCEL_ZIPCODE_TO_ZCTA = cfg.EXCEL_ZIPCODE_TO_ZCTA
+# EXCEL_ZIPCODE_TO_ZCTA = cfg.EXCEL_ZIPCODE_TO_ZCTA
+CSV_ZIPCODE_TO_ZCTA = cfg.CSV_ZIPCODE_TO_ZCTA
 
 PICKLE_POPULATION_ALL_STATES = "pickled_files/pop_all_states.pkl"
 
@@ -56,7 +57,8 @@ def get_dict_new_census_column_names(list_old_col_names):
 
 def get_df_zip_codes():
     # https://udsmapper.org/zip-code-to-zcta-crosswalk/
-    df_zip_codes = pd.read_excel(EXCEL_ZIPCODE_TO_ZCTA, dtype='str')
+    # df_zip_codes = pd.read_excel(EXCEL_ZIPCODE_TO_ZCTA, dtype='str', engine='openpyxl')
+    df_zip_codes = pd.read_csv(CSV_ZIPCODE_TO_ZCTA, encoding='latin-1')
     df_zip_codes.columns = df_zip_codes.columns.str.lower()
     df_zip_codes = df_zip_codes.loc[df_zip_codes["zip_join_type"]=="Zip matches ZCTA"]
 
@@ -65,7 +67,7 @@ def get_df_zip_codes():
 
 def get_df_zcta_to_msa():
 
-    df_zips = pd.read_csv(CSV_ZCTA_TO_MSA)
+    df_zips = pd.read_csv(CSV_ZCTA_TO_MSA, encoding='latin-1')
     df_zips['zcta5'] = df_zips['zcta5'].astype(str).str.zfill(5)
     df_zips = df_zips.rename(columns={"zcta5": "zcta", "cbsaname15": "cbsa_name"})
     df_zips = df_zips[["zcta", "cbsa"]]
@@ -202,4 +204,4 @@ def analyze_population():
 
 if __name__ == "__main__":
 
-    analyze_population()
+    get_df_populations()
