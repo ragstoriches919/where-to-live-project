@@ -1,7 +1,12 @@
 .idea/
 __pycache__/
-raw_data/census/pickled_files/
-raw_data/weather/pickled_files/
-raw_data/fhfa/pickled_files/
+raw_data/census/pickled_files/*
+raw_data/weather/pickled_files/*
+raw_data/fhfa/pickled_files/*
 */test.csv
+
+# exception to the rule
+!raw_data/census/pickled_files/.gitkeep
+!raw_data/weather/pickled_files/.gitkeep
+!raw_data/fhfa/pickled_files/.gitkeep
 
