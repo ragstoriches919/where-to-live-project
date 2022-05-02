@@ -1,6 +1,7 @@
 import pandas as pd
 import requests
 import cfg
+import os
 
 import raw_data.fhfa.fhfa_data as fhfa
 
@@ -16,7 +17,7 @@ CSV_ZCTA_TO_MSA = cfg.CSV_ZTCA_TO_MSA
 # EXCEL_ZIPCODE_TO_ZCTA = cfg.EXCEL_ZIPCODE_TO_ZCTA
 CSV_ZIPCODE_TO_ZCTA = cfg.CSV_ZIPCODE_TO_ZCTA
 
-PICKLE_POPULATION_ALL_STATES = "pickled_files/pop_all_states.pkl"
+PICKLE_POPULATION_ALL_ZIPS = os.path.join(cfg.ROOT_DIR, "raw_data/census/pickled_files/population_for_all_zips.pkl")
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Helper Functions
@@ -61,6 +62,7 @@ def get_df_zip_codes():
     df_zip_codes = pd.read_csv(CSV_ZIPCODE_TO_ZCTA, encoding='latin-1')
     df_zip_codes.columns = df_zip_codes.columns.str.lower()
     df_zip_codes = df_zip_codes.loc[df_zip_codes["zip_join_type"]=="Zip matches ZCTA"]
+    df_zip_codes.columns = ["zip_code", "po_name", "state", "zip_type", "zcta", "zip_join_type"]
 
     return df_zip_codes
 
@@ -173,13 +175,13 @@ def get_df_populations():
         else:
             df_population = pd.concat([df_population, df_temp])
         df_population["population_total"] = pd.to_numeric(df_population["population_total"])
-        df_population.to_pickle(PICKLE_POPULATION_ALL_STATES)
+        df_population.to_pickle(PICKLE_POPULATION_ALL_ZIPS)
 
     return df_population
 
 
-def analyze_population():
-    df_pop = pd.read_pickle(PICKLE_POPULATION_ALL_STATES)
+def get_df_zips_to_use_for_weather_analysis():
+    df_pop = pd.read_pickle(PICKLE_POPULATION_ALL_ZIPS)
     df_pop["population_total"] = pd.to_numeric(df_pop["population_total"])
     df_pop = df_pop.sort_values(by=["population_total"], ascending=False)
 
@@ -204,4 +206,5 @@ def analyze_population():
 
 if __name__ == "__main__":
 
-    get_df_populations()
+    df = pd.read_pickle(PICKLE_POPULATION_ALL_ZIPS)
+    print(df)

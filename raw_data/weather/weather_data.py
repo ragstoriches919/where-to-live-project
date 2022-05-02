@@ -5,6 +5,8 @@ import pandas as pd
 import numpy as np
 
 import cfg
+import raw_data.census.census_data as census
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Global variables
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -126,14 +128,48 @@ def get_df_weather_by_coord_point(latitude, longitude, start_datetime, end_datet
     return df_avg_temp_by_month
 
 
+def get_df_weather_by_zip_code(zip_code, start_datetime, end_datetime):
+
+    df_coords = pd.read_csv(CSV_ZIP_CODE_TO_COORDS).head()
+    df_coords["zip_code"] = df_coords['zip_code'].astype(str).str.zfill(5)
+    latitude = df_coords.loc[df_coords["zip_code"] == zip_code]["latitude"]
+    longitude = df_coords.loc[df_coords["zip_code"] == zip_code]["longitude"]
+
+    print("working on {}, latitude={}, longitude={}".format(zip_code, latitude, longitude))
+    df_weather = get_df_weather_by_coord_point(latitude, longitude, start_datetime, end_datetime)
+
+    return df_weather
+
+
+
+
+def get_df_weather_data_for_top_metro_areas():
+
+    num_metro_areas = 100
+    df_all_zips = census.get_df_zips_to_use_for_weather_analysis()
+    df_top_metros = df_all_zips.head(num_metro_areas)
+
+
+
+    return df_top_metros
+
+
+
+
+
 if __name__ == "__main__":
 
-    lat = 41.8237
-    long = -72.6212
-    start = datetime(2015, 1, 1)
-    end = datetime(2020, 12, 31)
+    # lat = 41.8237
+    # long = -72.6212
+    # start = datetime(2015, 1, 1)
+    # end = datetime(2020, 12, 31)
+    #
+    # df = get_df_weather_by_coord_point(lat, long, start, end)
+    #
 
-    df = get_df_weather_by_coord_point(lat, long, start, end)
+    # get_df_weather_data_for_top_metro_areas()
 
+    get_df_weather_by_zip_code
 
-
+    # df = pd.read_csv(CSV_ZIP_CODE_TO_COORDS)
+    # print(df)
