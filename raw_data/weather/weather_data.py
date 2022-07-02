@@ -1,6 +1,7 @@
 from datetime import datetime
 import matplotlib.pyplot as plt
 from meteostat import Stations, Daily, units, Monthly, Hourly, Point
+from time import time
 import pandas as pd
 import numpy as np
 import os
@@ -22,6 +23,22 @@ PICKLE_WEATHER_TOP_METROS = os.path.join(cfg.ROOT_DIR, "raw_data/weather/pickled
 # Helper Functions
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
+def timer_decorator(func):
+    """
+    A timer decorator that can wrap around any function!
+    :param func: Any function
+    :return: The function with the timer values printed out!
+    """
+    def wrap_func(*args, **kwargs):
+        start = time()
+        result = func(*args, **kwargs)
+        end = time()
+        print("\n")
+        print(func.__name__ + " ran in " + "{:.3f}".format(start-end) + " seconds.")
+        return result
+
+    return wrap_func
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Work functions
@@ -148,6 +165,7 @@ def get_df_monthly_weather_by_coord_point(df_weather):
     return df_avg_temp_by_month
 
 
+@timer_decorator
 def get_df_daily_weather_by_zip_code(zip_code, start_datetime, end_datetime):
 
     """
@@ -188,6 +206,7 @@ def get_df_monthly_weather_by_zip_code(df_weather):
     return df_avg_temp_by_month
 
 
+@timer_decorator
 def get_df_weather_data_for_top_metro_areas():
 
     num_metro_areas = 25
@@ -244,15 +263,23 @@ def get_df_weather_data_for_top_metro_areas():
     return df_all_weather
 
 
+
+
 if __name__ == "__main__":
 
     lat = 29.827485999999997
     long = -95.65992
     start = datetime(2015, 1, 1)
     end = datetime(2020, 12, 31)
+    zip = "75001"
 
-    # df = get_df_weather_data_for_top_metro_areas()
+    # df = get_df_daily_weather_by_zip_code(zip, start, end)
     # print(df)
     #
-    df = pd.read_pickle(PICKLE_WEATHER_TOP_METROS)
+    # df = pd.read_pickle(PICKLE_WEATHER_TOP_METROS)
+    # print(df)
+
+    # f = get_df_monthly_weather_by_zip_code
+
+    df = get_df_daily_weather_by_zip_code(zip, start, end)
     print(df)
