@@ -2,7 +2,7 @@ import pandas as pd
 import requests
 import cfg
 import os
-
+import numpy as np
 import raw_data.fhfa.fhfa_data as fhfa
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -85,10 +85,17 @@ def get_df_census_codes():
 
     data = []
     for key in vars:
-        data.append([key, vars[key]["label"]])
+        print(key)
+        try:
+            data.append([key, vars[key]["label"], vars[key]["concept"], vars[key]["predicateType"], vars[key]["group"], vars[key]["limit"], vars[key]["attributes"] ])
+        except:
+            data.append([key, vars[key]["label"], np.nan, np.nan, np.nan, np.nan])
 
-    df_census_codes = pd.DataFrame(data=data, columns=["census_code", "label"])
-    df_census_codes.to_csv(CSV_CENSUS_CODES)
+
+    df_census_codes = pd.DataFrame(data=data, columns=["census_code", "label", "concept", "predicateType", "group", "limit", "attributes"])
+    df_census_codes= df_census_codes.sort_values(by = ["census_code"])
+    df_census_codes.to_csv(CSV_CENSUS_CODES, index=False)
+
     return df_census_codes
 
 
@@ -129,7 +136,11 @@ def get_df_census_data(census_codes, year, state_abbrev, zcta=None ):
     df = pd.merge(df, get_df_zcta_to_msa(), on="zcta", how='left')
 
     if zcta is not None:
-        df = df.loc[df["zip code tabulation area"] == zcta]
+
+        if "zip code tabulation area" in df.columns:
+            df = df.loc[df["zip code tabulation area"] == zcta]
+        elif "zcta" in df.columns:
+            df = df.loc[df["zcta"] == zcta]
 
     return df
 
@@ -206,5 +217,11 @@ def get_df_zips_to_use_for_weather_analysis():
 
 if __name__ == "__main__":
 
-    df = pd.read_pickle(PICKLE_POPULATION_ALL_ZIPS)
-    print(df)
+    # df = pd.read_pickle(PICKLE_POPULATION_ALL_ZIPS)
+    # print(df)
+
+    # df = get_df_census_data("B08201_004E", 2019, "FL", zcta="33558")
+    #
+    # print(df)
+
+    get_df_census_codes()

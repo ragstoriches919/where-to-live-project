@@ -35,7 +35,7 @@ def timer_decorator(func):
         result = func(*args, **kwargs)
         end = time()
         print("\n")
-        print(func.__name__ + " ran in " + "{:.3f}".format(start-end) + " seconds.")
+        print(func.__name__ + " ran in " + "{:.3f}".format(end - start) + " seconds.")
         return result
 
     return wrap_func
@@ -47,6 +47,7 @@ def timer_decorator(func):
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Main
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 def get_df_weather_for_all_zip_codes(b_point_data=True):
     df_coords = pd.read_csv(CSV_ZIP_CODE_TO_COORDS).head()
@@ -263,23 +264,14 @@ def get_df_weather_data_for_top_metro_areas():
     return df_all_weather
 
 
-
-
 if __name__ == "__main__":
 
     lat = 29.827485999999997
     long = -95.65992
     start = datetime(2015, 1, 1)
     end = datetime(2020, 12, 31)
-    zip = "75001"
+    zip = "33558"
 
-    # df = get_df_daily_weather_by_zip_code(zip, start, end)
-    # print(df)
-    #
-    # df = pd.read_pickle(PICKLE_WEATHER_TOP_METROS)
-    # print(df)
-
-    # f = get_df_monthly_weather_by_zip_code
-
-    df = get_df_daily_weather_by_zip_code(zip, start, end)
-    print(df)
+    df_daily = get_df_daily_weather_by_zip_code(zip, start, end)
+    df_monthly = get_df_monthly_weather_by_zip_code(df_daily)
+    print(df_monthly)
