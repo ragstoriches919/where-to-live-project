@@ -220,8 +220,7 @@ if __name__ == "__main__":
     # df = pd.read_pickle(PICKLE_POPULATION_ALL_ZIPS)
     # print(df)
 
-    # df = get_df_census_data("B08201_004E", 2019, "FL", zcta="33558")
-    #
-    # print(df)
+    df = get_df_census_data("B19013A_001E,B19013B_001E,B19013D_001E,B19013I_001E", 2019, "CT", zcta="06074")
+    print(df)
 
-    get_df_census_codes()
+    # get_df_census_codes()
