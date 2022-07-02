@@ -102,7 +102,6 @@ def get_df_monthly_weather_by_station(df_weather):
     # Add tavg, tmax, tmin
     df_weather["date"] = pd.to_datetime(df_weather["time"].astype(str).str[:10])
     df_weather = df_weather.groupby(["date"])["temp"].agg({'mean', 'min', 'max'}).reset_index()
-    # df_weather.columns = ["date", "tavg", "tmin", "tmax"]
     df_weather["month"] = df_weather["date"].dt.month
 
     df_weather_grouped = df_weather.groupby(["month"])['mean', 'min', 'max'].mean().reset_index()
@@ -149,7 +148,15 @@ def get_df_monthly_weather_by_coord_point(df_weather):
     return df_avg_temp_by_month
 
 
-def get_df_monthly_weather_by_zip_code(zip_code, start_datetime, end_datetime):
+def get_df_daily_weather_by_zip_code(zip_code, start_datetime, end_datetime):
+
+    """
+    Gets daily values by zip code
+    :param zip_code: String
+    :param start_datetime: datetime(2020, 1, 1)
+    :param end_datetime: datetime(2022, 12, 31)
+    :return: DataFrame
+    """
 
     df_coords = pd.read_csv(CSV_ZIP_CODE_TO_COORDS)
     df_coords["zip_code"] = df_coords['zip_code'].astype(str).str.zfill(5)
@@ -158,13 +165,27 @@ def get_df_monthly_weather_by_zip_code(zip_code, start_datetime, end_datetime):
 
     print("working on {}, latitude={}, longitude={}".format(zip_code, latitude, longitude))
     df_weather = get_df_daily_weather_by_coord_point(latitude, longitude, start_datetime, end_datetime)
-    df_monthly_weather = get_df_monthly_weather_by_coord_point(df_weather)
 
-    df_monthly_weather["latitude"] = latitude
-    df_monthly_weather["longitude"] = longitude
-    df_monthly_weather["zip_code"] = zip_code
+    df_weather["latitude"] = latitude
+    df_weather["longitude"] = longitude
+    df_weather["zip_code"] = zip_code
 
-    return df_monthly_weather
+    return df_weather
+
+
+def get_df_monthly_weather_by_zip_code(df_weather):
+
+    """
+    Gets monthly data by zip code
+    :param df_weather: DataFrame (from get_df_daily_weather_by_zip_code())
+    :return: DataFrame
+    """
+
+    df_weather["time"] = pd.to_datetime(df_weather["time"])
+    df_weather["month"] = pd.DatetimeIndex(df_weather['time']).month
+    df_avg_temp_by_month = df_weather.groupby(['month', 'latitude', 'longitude', 'zip_code'])['tavg', 'tmax', 'tmin'].mean().reset_index()
+
+    return df_avg_temp_by_month
 
 
 def get_df_weather_data_for_top_metro_areas():
@@ -179,12 +200,18 @@ def get_df_weather_data_for_top_metro_areas():
     df_all_weather = None
     for index, row in df_top_metros.iterrows():
         zip_code = str(row["zip_code"])
+        city = str(row["po_name"])
+        state = str(row["state"])
+
 
         try:
-            df_weather = get_df_monthly_weather_by_zip_code(zip_code, start_datetime, end_datetime)
+            df_daily = get_df_daily_weather_by_zip_code(zip_code, start_datetime, end_datetime)
+            df_weather = get_df_monthly_weather_by_zip_code(df_daily)
             df_weather["latitude"] = df_weather["latitude"].iloc[0]
             df_weather["longitude"] = df_weather["longitude"].iloc[0]
             df_weather["zip_code"] = zip_code
+            df_weather["city"] = city
+            df_weather["state"] = state
             df_weather["data_type"] = "coordinate_point"
 
         except:
@@ -200,6 +227,8 @@ def get_df_weather_data_for_top_metro_areas():
                 df_weather["latitude"] = latitude
                 df_weather["longitude"] = longitude
                 df_weather["zip_code"] = zip_code
+                df_weather["city"] = city
+                df_weather["state"] = state
                 df_weather["data_type"] = "station"
 
 
@@ -222,11 +251,8 @@ if __name__ == "__main__":
     start = datetime(2015, 1, 1)
     end = datetime(2020, 12, 31)
 
-
-    # zip = "06074"
-    # df = get_df_monthly_weather_by_zip_code(zip, start, end)
+    # df = get_df_weather_data_for_top_metro_areas()
     # print(df)
-
-    get_df_monthly_weather_by_zip_code()
-
-
+    #
+    df = pd.read_pickle(PICKLE_WEATHER_TOP_METROS)
+    print(df)
