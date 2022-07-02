@@ -19,30 +19,28 @@ CSV_ZIPCODE_TO_ZCTA = cfg.CSV_ZIPCODE_TO_ZCTA
 
 PICKLE_POPULATION_ALL_ZIPS = os.path.join(cfg.ROOT_DIR, "raw_data/census/pickled_files/population_for_all_zips.pkl")
 
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Helper Functions
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 def get_census_state_code(state_abbrev):
-
     df_state_codes = pd.read_csv(CSV_STATE_CODES, dtype=str)
-    state_code = df_state_codes.loc[df_state_codes["state_abbrev"]==state_abbrev]["state_code"].iloc[0]
+    state_code = df_state_codes.loc[df_state_codes["state_abbrev"] == state_abbrev]["state_code"].iloc[0]
 
     return state_code
 
 
-def get_dict_new_census_column_names(list_old_census_columns):
-
+def get_dict_new_census_column_names(census_codes):
     df_census_codes = pd.read_csv(CSV_CENSUS_CODES)
-    df_census_codes = df_census_codes.loc[df_census_codes["census_code"].isin(list_old_census_columns)]
+    df_census_codes = df_census_codes.loc[df_census_codes["census_code"].isin(census_codes)]
     print(df_census_codes)
 
     dict = {}
 
     # Compare the label and concept columns in df_census_codes, and create new column names
     for index, row in df_census_codes.iterrows():
-
         label_start_index = lambda x: row["label"].find("Estimate!!") + len("Estimate!!") if row["label"].find(
             "Estimate!!") >= 0 else 0
 
@@ -56,28 +54,18 @@ def get_dict_new_census_column_names(list_old_census_columns):
     return dict
 
 
-# def get_dict_new_census_column_names(list_old_col_names):
-#
-#     dict_col_names = {}
-#     df_census_codes = pd.read_csv(CSV_CENSUS_CODES)
-#
-#     for old_col in list_old_col_names:
-#         if old_col not in ["NAME", "GEO_ID", "state", "zip code tabulation area"]:
-#
-#             if old_col == "B01001_001E":
-#                 dict_col_names[old_col] = "population_total"
-#             elif old_col == "B25107_001E":
-#                 dict_col_names[old_col] = "house_price_median"
-#             elif old_col == "B19013_001E":
-#                 dict_col_names[old_col] = "household_income_median"
-#             else:
-#                 dict_col_names[old_col] = df_census_codes.loc[df_census_codes["census_code"] == old_col]["label"].iloc[0]
-#
-#     # More manual column name changes
-#     dict_col_names["zip code tabulation area"] = "zcta"
-#     dict_col_names["state"] = "state_code"
-#
-#     return dict_col_names
+def get_dict_column_types(census_codes):
+    df_census_codes = pd.read_csv(CSV_CENSUS_CODES)
+    df_census_codes = df_census_codes.loc[df_census_codes["census_code"].isin(census_codes)]
+
+    dict_types = {}
+
+    for index, row in df_census_codes.iterrows():
+        pandas_type_function = lambda x: "numeric" if x in ["string", "float", "int"] else "string"
+        pandas_type = pandas_type_function(row["predicateType"])
+        dict_types[row["census_code"]] = pandas_type
+
+    return dict_types
 
 
 def get_df_zip_codes():
@@ -85,14 +73,13 @@ def get_df_zip_codes():
     # df_zip_codes = pd.read_excel(EXCEL_ZIPCODE_TO_ZCTA, dtype='str', engine='openpyxl')
     df_zip_codes = pd.read_csv(CSV_ZIPCODE_TO_ZCTA, encoding='latin-1')
     df_zip_codes.columns = df_zip_codes.columns.str.lower()
-    df_zip_codes = df_zip_codes.loc[df_zip_codes["zip_join_type"]=="Zip matches ZCTA"]
+    df_zip_codes = df_zip_codes.loc[df_zip_codes["zip_join_type"] == "Zip matches ZCTA"]
     df_zip_codes.columns = ["zip_code", "po_name", "state", "zip_type", "zcta", "zip_join_type"]
 
     return df_zip_codes
 
 
 def get_df_zcta_to_msa():
-
     df_zips = pd.read_csv(CSV_ZCTA_TO_MSA, encoding='latin-1')
     df_zips['zcta5'] = df_zips['zcta5'].astype(str).str.zfill(5)
     df_zips = df_zips.rename(columns={"zcta5": "zcta", "cbsaname15": "cbsa_name"})
@@ -102,7 +89,6 @@ def get_df_zcta_to_msa():
 
 
 def get_df_census_codes():
-
     data_url = r"https://api.census.gov/data/2019/acs/acs5/variables.json"
     response = requests.get(data_url).json()
     vars = response["variables"]
@@ -111,13 +97,15 @@ def get_df_census_codes():
     for key in vars:
         print(key)
         try:
-            data.append([key, vars[key]["label"], vars[key]["concept"], vars[key]["predicateType"], vars[key]["group"], vars[key]["limit"], vars[key]["attributes"] ])
+            data.append([key, vars[key]["label"], vars[key]["concept"], vars[key]["predicateType"], vars[key]["group"],
+                         vars[key]["limit"], vars[key]["attributes"]])
         except:
             data.append([key, vars[key]["label"], np.nan, np.nan, np.nan, np.nan])
 
-
-    df_census_codes = pd.DataFrame(data=data, columns=["census_code", "label", "concept", "predicateType", "group", "limit", "attributes"])
-    df_census_codes= df_census_codes.sort_values(by = ["census_code"])
+    df_census_codes = pd.DataFrame(data=data,
+                                   columns=["census_code", "label", "concept", "predicateType", "group", "limit",
+                                            "attributes"])
+    df_census_codes = df_census_codes.sort_values(by=["census_code"])
     df_census_codes.to_csv(CSV_CENSUS_CODES, index=False)
 
     return df_census_codes
@@ -127,8 +115,7 @@ def get_df_census_codes():
 # Work functions
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-def get_df_census_data(census_codes, year, state_abbrev, zcta=None ):
-
+def get_df_census_data(census_codes, year, state_abbrev, zcta=None):
     """
     Retrieves census data from API based on contents of census_codes param
     :param census_codes: String Ex.) 'B01001_001E' or 'NAME,GEO_ID,B01001_001E,B25107_001E,B19013_001E'
@@ -146,15 +133,27 @@ def get_df_census_data(census_codes, year, state_abbrev, zcta=None ):
     print(data_url)
 
     response = requests.get(data_url).json()
-    column_names = response[0]
+    census_codes = response[0]
     data = response[1:]
 
-    dict_new_cols = get_dict_new_census_column_names(column_names)
 
-    df = pd.DataFrame(columns=column_names, data=data )
+
+
+    dict_new_cols = get_dict_new_census_column_names(census_codes)
+    df = pd.DataFrame(columns=census_codes, data=data)
+
+    # Change types (usually to pd.to_numeric())
+    dict_types = get_dict_column_types(census_codes)
+    for census_code, new_type in dict_types.items():
+        if new_type == "numeric":
+            df[census_code] = pd.to_numeric(df[census_code])
+
+    # Change column names
     df = df.rename(columns=dict_new_cols)
-    df = df.rename(columns = {"zip code tabulation area": "zcta"})
+    df = df.rename(columns={"zip code tabulation area": "zcta"})
     df = df.drop(columns=["state"])
+
+
 
     # Merge zip codes database
     df = pd.merge(df, get_df_zip_codes(), on="zcta")
@@ -183,12 +182,13 @@ def get_df_acs_5y_data_raw(year, state_abbrev, zcta=None):
     df = pd.merge(df, fhfa.get_df_fhfa_data(), on="cbsa", how='left')
 
     # Drop negative values
-    df = df.loc[ (df["house_price_median"].astype(int) > 0) & (df["household_income_median"].astype(int) > 0)]
+    df = df.loc[(df["house_price_median"].astype(int) > 0) & (df["household_income_median"].astype(int) > 0)]
 
     # Extra analytics
     df["home_price_to_median_income"] = df["house_price_median"].astype(int) / df["household_income_median"].astype(int)
     df["household_income_percentile"] = df["household_income_median"].astype(int).rank(pct=True)
-    df["home_price_to_income_percentile"] = df["home_price_to_median_income"].astype(int).rank(pct=True, ascending=False)
+    df["home_price_to_income_percentile"] = df["home_price_to_median_income"].astype(int).rank(pct=True,
+                                                                                               ascending=False)
 
     df.to_csv('test.csv')
 
@@ -228,7 +228,8 @@ def get_df_zips_to_use_for_weather_analysis():
                           on=["po_name", "state", "population_total"], how='inner')
     df_zip_max = df_zip_max.drop_duplicates()
 
-    df_zips_to_use_for_weather = pd.merge(df_zip_max[["po_name", "state", "zip_code"]], df_pop_sums[["po_name", "state", "population_total"]])
+    df_zips_to_use_for_weather = pd.merge(df_zip_max[["po_name", "state", "zip_code"]],
+                                          df_pop_sums[["po_name", "state", "population_total"]])
     df_zips_to_use_for_weather = df_zips_to_use_for_weather.sort_values(by=["population_total"], ascending=False)
 
     return df_zips_to_use_for_weather
@@ -239,11 +240,7 @@ def get_df_zips_to_use_for_weather_analysis():
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 if __name__ == "__main__":
-
     codes = "B02015_002E,B01001_001E,B02015_016E"
-    # codes = "B02015_002E"
 
-    df = get_df_census_data(codes, 2019, "CT", zcta="06074")
+    df = get_df_census_data(codes, 2019, "FL", zcta=None)
     print(df)
-    #
-    # print(get_df_zip_codes())
