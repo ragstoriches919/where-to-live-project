@@ -32,28 +32,52 @@ def get_census_state_code(state_abbrev):
     return state_code
 
 
-def get_dict_new_census_column_names(list_old_col_names):
+def get_dict_new_census_column_names(list_old_census_columns):
 
-    dict_col_names = {}
     df_census_codes = pd.read_csv(CSV_CENSUS_CODES)
+    df_census_codes = df_census_codes.loc[df_census_codes["census_code"].isin(list_old_census_columns)]
+    print(df_census_codes)
 
-    for old_col in list_old_col_names:
-        if old_col not in ["NAME", "GEO_ID", "state", "zip code tabulation area"]:
+    dict = {}
 
-            if old_col == "B01001_001E":
-                dict_col_names[old_col] = "population_total"
-            elif old_col == "B25107_001E":
-                dict_col_names[old_col] = "house_price_median"
-            elif old_col == "B19013_001E":
-                dict_col_names[old_col] = "household_income_median"
-            else:
-                dict_col_names[old_col] = df_census_codes.loc[df_census_codes["census_code"] == old_col]["label"].iloc[0]
+    # Compare the label and concept columns in df_census_codes, and create new column names
+    for index, row in df_census_codes.iterrows():
 
-    # More manual column name changes
-    dict_col_names["zip code tabulation area"] = "zcta"
-    dict_col_names["state"] = "state_code"
+        label_start_index = lambda x: row["label"].find("Estimate!!") + len("Estimate!!") if row["label"].find(
+            "Estimate!!") >= 0 else 0
 
-    return dict_col_names
+        label = row["label"][label_start_index(row["label"]):].lower()
+        concept = row["concept"].lower().replace(label, "").strip()
+
+        new_column_name = (label + " " + concept).title()
+
+        dict[row["census_code"]] = new_column_name
+
+    return dict
+
+
+# def get_dict_new_census_column_names(list_old_col_names):
+#
+#     dict_col_names = {}
+#     df_census_codes = pd.read_csv(CSV_CENSUS_CODES)
+#
+#     for old_col in list_old_col_names:
+#         if old_col not in ["NAME", "GEO_ID", "state", "zip code tabulation area"]:
+#
+#             if old_col == "B01001_001E":
+#                 dict_col_names[old_col] = "population_total"
+#             elif old_col == "B25107_001E":
+#                 dict_col_names[old_col] = "house_price_median"
+#             elif old_col == "B19013_001E":
+#                 dict_col_names[old_col] = "household_income_median"
+#             else:
+#                 dict_col_names[old_col] = df_census_codes.loc[df_census_codes["census_code"] == old_col]["label"].iloc[0]
+#
+#     # More manual column name changes
+#     dict_col_names["zip code tabulation area"] = "zcta"
+#     dict_col_names["state"] = "state_code"
+#
+#     return dict_col_names
 
 
 def get_df_zip_codes():
@@ -129,18 +153,18 @@ def get_df_census_data(census_codes, year, state_abbrev, zcta=None ):
 
     df = pd.DataFrame(columns=column_names, data=data )
     df = df.rename(columns=dict_new_cols)
-    df = df.sort_values(by=["zcta"])
+    df = df.rename(columns = {"zip code tabulation area": "zcta"})
+    df = df.drop(columns=["state"])
 
     # Merge zip codes database
     df = pd.merge(df, get_df_zip_codes(), on="zcta")
     df = pd.merge(df, get_df_zcta_to_msa(), on="zcta", how='left')
+    df["year"] = year
+
+    # Convert to correct type
 
     if zcta is not None:
-
-        if "zip code tabulation area" in df.columns:
-            df = df.loc[df["zip code tabulation area"] == zcta]
-        elif "zcta" in df.columns:
-            df = df.loc[df["zcta"] == zcta]
+        df = df.loc[df["zcta"] == zcta]
 
     return df
 
@@ -214,13 +238,12 @@ def get_df_zips_to_use_for_weather_analysis():
 # Main
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
 if __name__ == "__main__":
 
-    # df = pd.read_pickle(PICKLE_POPULATION_ALL_ZIPS)
-    # print(df)
+    codes = "B02015_002E,B01001_001E,B02015_016E"
+    # codes = "B02015_002E"
 
-    df = get_df_census_data("B19013A_001E,B19013B_001E,B19013D_001E,B19013I_001E", 2019, "CT", zcta="06074")
+    df = get_df_census_data(codes, 2019, "CT", zcta="06074")
     print(df)
-
-    # get_df_census_codes()
+    #
+    # print(get_df_zip_codes())
