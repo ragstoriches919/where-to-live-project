@@ -88,8 +88,15 @@ def get_df_zcta_to_msa():
     return df_zips
 
 
-def get_df_census_codes():
-    data_url = r"https://api.census.gov/data/2019/acs/acs5/variables.json"
+def get_df_census_codes(year=2019):
+
+    """
+
+    :return: List of all census codes from the American Community Survey 5-year estimates
+    """
+
+    data_url = r"https://api.census.gov/data/{year}/acs/acs5/variables.json".format(year=year)
+    print(data_url)
     response = requests.get(data_url).json()
     vars = response["variables"]
 
@@ -106,7 +113,7 @@ def get_df_census_codes():
                                    columns=["census_code", "label", "concept", "predicateType", "group", "limit",
                                             "attributes"])
     df_census_codes = df_census_codes.sort_values(by=["census_code"])
-    df_census_codes.to_csv(CSV_CENSUS_CODES, index=False)
+    # df_census_codes.to_csv(CSV_CENSUS_CODES, index=False)
 
     return df_census_codes
 
@@ -243,7 +250,9 @@ def get_df_census_data(census_codes, year, state_abbrev, zcta=None):
 if __name__ == "__main__":
     codes = ["B02015_002E", "B01001_001E", "B02015_016E"]
 
-    df = get_df_census_data(codes, 2019, "NH", zcta=None)
+    df = get_df_census_data(codes, 2020, "NH", zcta=None)
+    print(df)
 
+    # print(get_df_census_codes(year=2020))
 
 
