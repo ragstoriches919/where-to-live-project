@@ -115,58 +115,6 @@ def get_df_census_codes():
 # Work functions
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-def get_df_census_data(census_codes, year, state_abbrev, zcta=None):
-    """
-    Retrieves census data from API based on contents of census_codes param
-    :param census_codes: String Ex.) 'B01001_001E' or 'NAME,GEO_ID,B01001_001E,B25107_001E,B19013_001E'
-    :param year: Integer
-    :param state_abbrev: String Ex.) "CT"
-    :param zcta: String Ex.) "06074"
-    :return: DataFrame
-    """
-
-    dsource = 'acs/acs5'
-
-    state_code = get_census_state_code(state_abbrev)
-    base_url = f'https://api.census.gov/data/{year}/{dsource}'
-    data_url = f'{base_url}?get={census_codes}&for=zip%20code%20tabulation%20area:*&in=state:{state_code}&key={API_KEY_CENSUS}'
-    print(data_url)
-
-    response = requests.get(data_url).json()
-    census_codes = response[0]
-    data = response[1:]
-
-
-
-
-    dict_new_cols = get_dict_new_census_column_names(census_codes)
-    df = pd.DataFrame(columns=census_codes, data=data)
-
-    # Change types (usually to pd.to_numeric())
-    dict_types = get_dict_column_types(census_codes)
-    for census_code, new_type in dict_types.items():
-        if new_type == "numeric":
-            df[census_code] = pd.to_numeric(df[census_code])
-
-    # Change column names
-    df = df.rename(columns=dict_new_cols)
-    df = df.rename(columns={"zip code tabulation area": "zcta"})
-    df = df.drop(columns=["state"])
-
-
-
-    # Merge zip codes database
-    df = pd.merge(df, get_df_zip_codes(), on="zcta")
-    df = pd.merge(df, get_df_zcta_to_msa(), on="zcta", how='left')
-    df["year"] = year
-
-    # Convert to correct type
-
-    if zcta is not None:
-        df = df.loc[df["zcta"] == zcta]
-
-    return df
-
 
 def get_df_acs_5y_data_raw(year, state_abbrev, zcta=None):
     """
@@ -177,7 +125,7 @@ def get_df_acs_5y_data_raw(year, state_abbrev, zcta=None):
     :return: DataFrame
     """
 
-    census_codes = 'NAME,GEO_ID,B01001_001E,B25107_001E,B19013_001E'
+    census_codes = ['NAME' , 'GEO_ID' ,'B01001_001E', 'B25107_001E', 'B19013_001E']
     df = get_df_census_data(census_codes, year, state_abbrev, zcta=zcta)
     df = pd.merge(df, fhfa.get_df_fhfa_data(), on="cbsa", how='left')
 
@@ -236,11 +184,66 @@ def get_df_zips_to_use_for_weather_analysis():
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Main Driver Function
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+def get_df_census_data(census_codes, year, state_abbrev, zcta=None):
+    """
+    Retrieves census data from API based on contents of census_codes param
+    :param census_codes: List of Strings Ex.) ['B01001_001E'] or ['NAME', 'GEO_ID', 'B01001_001E', 'B25107_001E', 'B19013_001E']
+    :param year: Integer
+    :param state_abbrev: String Ex.) "CT"
+    :param zcta: String Ex.) "06074"
+    :return: DataFrame
+    """
+
+    dsource = 'acs/acs5'
+
+    state_code = get_census_state_code(state_abbrev)
+    base_url = f'https://api.census.gov/data/{year}/{dsource}'
+    census_codes_str = ",".join(census_codes)
+    data_url = f'{base_url}?get={census_codes_str}&for=zip%20code%20tabulation%20area:*&in=state:{state_code}&key={API_KEY_CENSUS}'
+    print(data_url)
+
+    response = requests.get(data_url).json()
+    census_codes_from_json = response[0]
+    data = response[1:]
+
+    dict_new_cols = get_dict_new_census_column_names(census_codes_from_json)
+    df = pd.DataFrame(columns=census_codes_from_json, data=data)
+
+    # Change types (usually to pd.to_numeric())
+    dict_types = get_dict_column_types(census_codes_from_json)
+    for census_code, new_type in dict_types.items():
+        if new_type == "numeric":
+            df[census_code] = pd.to_numeric(df[census_code])
+
+    # Change column names
+    df = df.rename(columns=dict_new_cols)
+    df = df.rename(columns={"zip code tabulation area": "zcta"})
+    df = df.drop(columns=["state"])
+
+    # Merge zip codes database
+    df = pd.merge(df, get_df_zip_codes(), on="zcta")
+    df = pd.merge(df, get_df_zcta_to_msa(), on="zcta", how='left')
+    df["year"] = year
+
+    # Convert to correct type
+
+    if zcta is not None:
+        df = df.loc[df["zcta"] == zcta]
+
+    return df
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Main
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 if __name__ == "__main__":
-    codes = "B02015_002E,B01001_001E,B02015_016E"
+    codes = ["B02015_002E", "B01001_001E", "B02015_016E"]
 
-    df = get_df_census_data(codes, 2019, "FL", zcta=None)
-    print(df)
+    df = get_df_census_data(codes, 2019, "NH", zcta=None)
+
+
+
