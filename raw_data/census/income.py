@@ -19,12 +19,4 @@ def get_df_income(year, state_abbrev, zcta=None):
 
 if __name__ == "__main__":
 
-    df =get_df_income(2019, "CT", zcta="06074")
-    print(df)
-
-
-
-
-
-
-
+    df = get_df_income(2019, "CT", zcta="06074")

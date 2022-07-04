@@ -209,7 +209,19 @@ def get_df_census_data(census_codes, year, state_abbrev, zcta=None):
     state_code = get_census_state_code(state_abbrev)
     base_url = f'https://api.census.gov/data/{year}/{dsource}'
     census_codes_str = ",".join(census_codes)
-    data_url = f'{base_url}?get={census_codes_str}&for=zip%20code%20tabulation%20area:*&in=state:{state_code}&key={API_KEY_CENSUS}'
+
+    if year == 2020:
+
+        # All states in 2020
+        if zcta is not None:
+            data_url = f'{base_url}?get={census_codes_str}&for=zip%20code%20tabulation%20area:{zcta}&key={API_KEY_CENSUS}'
+
+        # Single zcta in 2020
+        else:
+            data_url = f'{base_url}?get={census_codes_str}&for=zip%20code%20tabulation%20area:*&key={API_KEY_CENSUS}'
+    else:
+        data_url = f'{base_url}?get={census_codes_str}&for=zip%20code%20tabulation%20area:*&in=state:{state_code}&key={API_KEY_CENSUS}'
+
     print(data_url)
 
     response = requests.get(data_url).json()
@@ -219,26 +231,39 @@ def get_df_census_data(census_codes, year, state_abbrev, zcta=None):
     dict_new_cols = get_dict_new_census_column_names(census_codes_from_json)
     df = pd.DataFrame(columns=census_codes_from_json, data=data)
 
+    if year == 2020 and zcta is None:
+        df_zips = get_df_zip_codes()
+        df_zips = df_zips.loc[df_zips["state"] == state_abbrev]
+        df = pd.merge(df, df_zips, left_on = "zip code tabulation area", right_on = "zcta")
+        df = pd.merge(df, get_df_zcta_to_msa(), on="zcta", how='left')
+        df = df.drop(columns=["zip code tabulation area"])
+    else:
+        # Merge zip codes database
+        df = pd.merge(df, get_df_zip_codes(), on="zcta")
+        df = pd.merge(df, get_df_zcta_to_msa(), on="zcta", how='left')
+        df["year"] = year
+
+        # Change column names
+        df = df.rename(columns=dict_new_cols)
+        df = df.rename(columns={"zip code tabulation area": "zcta"})
+
+        try:
+            df = df.drop(columns=["state"])
+        except:
+            pass
+
+        # Convert to correct type
+
+        if zcta is not None:
+            df = df.loc[df["zcta"] == zcta]
+
+
+
     # Change types (usually to pd.to_numeric())
     dict_types = get_dict_column_types(census_codes_from_json)
     for census_code, new_type in dict_types.items():
         if new_type == "numeric":
             df[census_code] = pd.to_numeric(df[census_code])
-
-    # Change column names
-    df = df.rename(columns=dict_new_cols)
-    df = df.rename(columns={"zip code tabulation area": "zcta"})
-    df = df.drop(columns=["state"])
-
-    # Merge zip codes database
-    df = pd.merge(df, get_df_zip_codes(), on="zcta")
-    df = pd.merge(df, get_df_zcta_to_msa(), on="zcta", how='left')
-    df["year"] = year
-
-    # Convert to correct type
-
-    if zcta is not None:
-        df = df.loc[df["zcta"] == zcta]
 
     return df
 
@@ -248,11 +273,7 @@ def get_df_census_data(census_codes, year, state_abbrev, zcta=None):
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 if __name__ == "__main__":
-    codes = ["B02015_002E", "B01001_001E", "B02015_016E"]
+    codes = ["B02015_002E"]
 
-    df = get_df_census_data(codes, 2020, "NH", zcta=None)
+    df = get_df_census_data(codes, 2020, "CT", zcta=None)
     print(df)
-
-    # print(get_df_census_codes(year=2020))
-
-
