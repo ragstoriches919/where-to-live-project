@@ -65,5 +65,5 @@ def get_df_income_by_cohort(year, state_abbrev, zcta=None):
 
 if __name__ == "__main__":
 
-    df = get_df_income_by_cohort(2020, "CT", zcta="06074")
+    df = get_df_income(2020, "NJ", zcta="07054")
     print(df)
