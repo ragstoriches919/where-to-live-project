@@ -5,10 +5,8 @@ import pandas as pd
 
 def get_df_population_stats_by_age(year, state_abbrev, zcta=None):
 
-    df_census_codes = pd.read_csv(cfg.CSV_CENSUS_CODES)
-
-    census_codes_age = list(df_census_codes.loc[df_census_codes["group"] == "B01001"]["census_code"].unique())
-
+    group = "B01001"
+    census_codes_age = census.get_list_census_codes_by_group(group)
     df_population = census.get_df_census_data(census_codes_age, year, state_abbrev, zcta = zcta)
 
     df_population["Male_<9"] = df_population[['Total:!!Male:!!Under 5 Years Sex By Age', 'Total:!!Male:!!5 To 9 Years Sex By Age']].sum(axis=1)
@@ -36,9 +34,8 @@ def get_df_population_stats_by_age(year, state_abbrev, zcta=None):
 
 def get_df_population_stats_by_race(year, state_abbrev, zcta=None):
 
-    df_census_codes = pd.read_csv(cfg.CSV_CENSUS_CODES)
-
-    census_codes_race = list(df_census_codes.loc[df_census_codes["group"] == "B02001"]["census_code"].unique())
+    group = "B02001"
+    census_codes_race = census.get_list_census_codes_by_group(group)
     census_codes_race.append("B03001_003E")
 
     df_race = census.get_df_census_data(census_codes_race, year, state_abbrev, zcta=zcta)
@@ -65,7 +62,7 @@ def get_df_population_stats_by_race(year, state_abbrev, zcta=None):
 if __name__ == "__main__":
     pass
 
-    df = get_df_population_stats_by_race(2019, "CT", zcta="06074")
+    df = get_df_population_stats_by_race(2020, "CT", zcta="06074")
     df.to_csv('test.csv')
 
 
