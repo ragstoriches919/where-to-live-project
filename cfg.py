@@ -1,6 +1,7 @@
 import os
 
 API_KEY_CENSUS = r"4715d5f869c5ebbad9f7a58d3fd8deb1ff0401a8"
+API_KEY_OPENSTATES = r"ed531324-579a-4ef6-ad87-4cee13663e25"
 NOAA_TOKEN = r"kOKWxjRWxlMRqNUUwihFmRXklcbIDqeZ"
 
 
