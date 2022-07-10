@@ -2,7 +2,7 @@ import raw_data.census.census_data as census
 import matplotlib.pyplot as plt
 import pandas as pd
 import cfg
-import seaborn
+import seaborn as sns
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Helper Functions
@@ -38,10 +38,15 @@ def create_chart_housing_value_shares(df_housing):
 
     cols_in_chart = df_housing.columns
     y_values = df_housing[cols_in_chart].values.flatten().tolist()
-    x_values = cols_in_chart
-    plt.bar(x_values, y_values)
-    plt.xticks(rotation=90)
 
+
+    x_values = cols_in_chart
+    sns.set_style('whitegrid')
+    ax = sns.barplot(x_values, y_values, color="#419ff2")
+    ax.bar_label(ax.containers[0], fmt='%.0f%%')
+
+    plt.xticks(rotation=90)
+    plt.grid()
     plt.show()
 
 
@@ -84,7 +89,7 @@ def get_df_housing_values(year, state_abbrev, zcta=None):
     df_housing_values = df_housing_values.rename(columns = {"Total: Value": "total_number_housing_units"})
 
 
-    df_housing_values["housing_value_<100k"] = df_housing_values['Total:!!Less Than $10,000 Value'] + \
+    df_housing_values["housing_value_<$100k"] = df_housing_values['Total:!!Less Than $10,000 Value'] + \
                                                df_housing_values['Total:!!$10,000 To $14,999 Value'] + \
                                                df_housing_values['Total:!!$15,000 To $19,999 Value'] + \
                                                df_housing_values['Total:!!$20,000 To $24,999 Value'] + \
@@ -98,22 +103,22 @@ def get_df_housing_values(year, state_abbrev, zcta=None):
                                                df_housing_values['Total:!!$80,000 To $89,999 Value'] + \
                                                df_housing_values['Total:!!$90,000 To $99,999 Value']
 
-    df_housing_values["housing_value_100k-200k"] = df_housing_values['Total:!!$100,000 To $124,999 Value'] + \
+    df_housing_values["housing_value_$100k-$200k"] = df_housing_values['Total:!!$100,000 To $124,999 Value'] + \
                                                    df_housing_values['Total:!!$125,000 To $149,999 Value'] + \
                                                    df_housing_values['Total:!!$150,000 To $174,999 Value'] + \
                                                    df_housing_values['Total:!!$175,000 To $199,999 Value']
 
-    df_housing_values["housing_value_200k-300k"] = df_housing_values['Total:!!$200,000 To $249,999 Value'] + \
+    df_housing_values["housing_value_$200k-$300k"] = df_housing_values['Total:!!$200,000 To $249,999 Value'] + \
                                                    df_housing_values['Total:!!$250,000 To $299,999 Value']
 
-    df_housing_values["housing_value_300k-400k"] = df_housing_values['Total:!!$300,000 To $399,999 Value']
+    df_housing_values["housing_value_$300k-$400k"] = df_housing_values['Total:!!$300,000 To $399,999 Value']
 
-    df_housing_values["housing_value_400k-500k"] = df_housing_values['Total:!!$400,000 To $499,999 Value']
-    df_housing_values["housing_value_500k-750k"] = df_housing_values['Total:!!$500,000 To $749,999 Value']
-    df_housing_values["housing_value_750k-1mio"] = df_housing_values['Total:!!$750,000 To $999,999 Value']
-    df_housing_values["housing_value_1mio-1.5mio"] = df_housing_values['Total:!!$1,000,000 To $1,499,999 Value']
-    df_housing_values["housing_value_1.5mio-2mio"] = df_housing_values['Total:!!$1,500,000 To $1,999,999 Value']
-    df_housing_values["housing_value_>2mio"] = df_housing_values['Total:!!$2,000,000 Or More Value']
+    df_housing_values["housing_value_$400k-$500k"] = df_housing_values['Total:!!$400,000 To $499,999 Value']
+    df_housing_values["housing_value_$500k-$750k"] = df_housing_values['Total:!!$500,000 To $749,999 Value']
+    df_housing_values["housing_value_$750k-$1mio"] = df_housing_values['Total:!!$750,000 To $999,999 Value']
+    df_housing_values["housing_value_$1mio-$1.5mio"] = df_housing_values['Total:!!$1,000,000 To $1,499,999 Value']
+    df_housing_values["housing_value_$1.5mio-$2mio"] = df_housing_values['Total:!!$1,500,000 To $1,999,999 Value']
+    df_housing_values["housing_value_>$2mio"] = df_housing_values['Total:!!$2,000,000 Or More Value']
 
     df_housing_values = get_df_housing_value_shares(df_housing_values)
 
