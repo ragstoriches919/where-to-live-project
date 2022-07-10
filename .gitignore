@@ -4,6 +4,7 @@ raw_data/census/pickled_files/*
 raw_data/weather/pickled_files/*
 raw_data/fhfa/pickled_files/*
 */test.csv
+venv/
 
 # exception to the rule
 !raw_data/census/pickled_files/.gitkeep

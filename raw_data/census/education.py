@@ -2,6 +2,31 @@ import raw_data.census.census_data as census
 import pandas as pd
 import cfg
 
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Helper Functions
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+def get_df_education_level_percentages(df_educ):
+
+    """
+    Return a df containing percentage of population by educational attainment
+    :param df_educ: DataFrame (get_df_education_level())
+    :return: DataFrame
+    """
+
+    educ_columns = [col for col in df_educ.columns if "education" in col]
+    for col in educ_columns:
+        if col != "education_total_population_>25":
+            df_educ["%_" + col] = df_educ[col] / df_educ["education_total_population_>25"] * 100
+
+    return df_educ
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Work Functions
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 def get_df_education_level(year, state_abbrev, zcta=None):
 
@@ -21,14 +46,9 @@ def get_df_education_level(year, state_abbrev, zcta=None):
 
         df_educ = df_educ.rename(columns = {col: new_col_name})
 
+    df_educ = get_df_education_level_percentages(df_educ)
+
     return df_educ
-
-
-def get_df_education_level_percentages(df_educ):
-
-    educ_columns = len([col for col in df_educ.columns])
-
-
 
 
 

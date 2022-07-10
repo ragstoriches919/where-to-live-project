@@ -1,17 +1,88 @@
 import raw_data.census.census_data as census
+import matplotlib.pyplot as plt
 import pandas as pd
 import cfg
+import seaborn
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Helper Functions
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+def get_df_housing_value_shares(df_housing):
+
+    """
+    Housing shares by value of housing units
+    :param df_housing: DataFrame (get_df_housing_values())
+    :return: DataFrame
+    """
+
+    housing_columns = [col for col in df_housing.columns if "housing_value" in col]
+    for col in housing_columns:
+        df_housing["%_" + col] = (df_housing[col] / df_housing["total_number_housing_units"]) * 100
+
+    return df_housing
+
+
+def create_chart_housing_value_shares(df_housing):
+
+    """
+    Shows a histogram of housing values
+    :param df_housing: DataFrame
+    :return: Matplotlib chart
+    """
+
+    # Rename columns in chart
+    df_housing = df_housing[[col for col in df_housing.columns if "%" in col]]
+    df_housing.columns = [col.replace("%_housing_value_", "") for col in df_housing.columns if "%" in col]
+
+    cols_in_chart = df_housing.columns
+    y_values = df_housing[cols_in_chart].values.flatten().tolist()
+    x_values = cols_in_chart
+    plt.bar(x_values, y_values)
+    plt.xticks(rotation=90)
+
+    plt.show()
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Work Functions
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+def get_df_median_home_value(year, state_abbrev, zcta=None):
+
+    """
+    Gets median home value
+    :param year: Integer
+    :param state_abbrev: String
+    :param zcta: String Ex.) "06074"
+    :return: DataFrame
+    """
+
+    group = "B25077"
+    census_codes_median_value = census.get_list_census_codes_by_group(group)
+    df_median_value = census.get_df_census_data(census_codes_median_value, year, state_abbrev, zcta=zcta)
+
+    return df_median_value
 
 
 def get_df_housing_values(year, state_abbrev, zcta=None):
+
+    """
+    Aggregates housing values
+    :param year: Integer
+    :param state_abbrev: String
+    :param zcta: String Ex.) "06074"
+    :return: DataFrame
+    """
 
     group = "B25075"
 
     census_codes_housing_values = census.get_list_census_codes_by_group(group)
     df_housing_values = census.get_df_census_data(census_codes_housing_values, year, state_abbrev, zcta=zcta)
+    df_housing_values = df_housing_values.rename(columns = {"Total: Value": "total_number_housing_units"})
 
-    for column in df_housing_values.columns:
-        print(column)
 
     df_housing_values["housing_value_<100k"] = df_housing_values['Total:!!Less Than $10,000 Value'] + \
                                                df_housing_values['Total:!!$10,000 To $14,999 Value'] + \
@@ -44,22 +115,18 @@ def get_df_housing_values(year, state_abbrev, zcta=None):
     df_housing_values["housing_value_1.5mio-2mio"] = df_housing_values['Total:!!$1,500,000 To $1,999,999 Value']
     df_housing_values["housing_value_>2mio"] = df_housing_values['Total:!!$2,000,000 Or More Value']
 
+    df_housing_values = get_df_housing_value_shares(df_housing_values)
+
     return df_housing_values
 
-
-def get_df_median_home_value(year, state_abbrev, zcta=None):
-
-    group = "B25077"
-    census_codes_median_value = census.get_list_census_codes_by_group(group)
-    df_median_value = census.get_df_census_data(census_codes_median_value, year, state_abbrev, zcta=zcta)
-
-    return df_median_value
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Main
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
 if __name__ == "__main__":
 
-    df = get_df_median_home_value(2020, "MI", "48130")
-    print(df)
+    df = get_df_housing_values(2020, "MI", "48130")
+    create_chart_housing_value_shares(df)
+
