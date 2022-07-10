@@ -61,5 +61,5 @@ def get_df_median_home_value(year, state_abbrev, zcta=None):
 
 if __name__ == "__main__":
 
-    df = get_df_median_home_value(2020, "NJ", "07005")
+    df = get_df_median_home_value(2020, "MI", "48130")
     print(df)
