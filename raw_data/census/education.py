@@ -59,5 +59,7 @@ def get_df_education_level(year, state_abbrev, zcta=None):
 
 if __name__ == "__main__":
 
-    df = get_df_education_level(2020, "MI", zcta="48130")
-    print(df)
+    print(104//102)
+
+    # df = get_df_education_level(2020, "MI", zcta="48130")
+    # print(df)
