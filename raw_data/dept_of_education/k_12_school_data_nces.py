@@ -52,7 +52,6 @@ def get_df_nces_k_12_data(fields):
 # Main
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
 if __name__ == "__main__":
 
     # fields = ['OBJECTID', 'NCESSCH', 'SURVYEAR', 'STABR', 'SCH_NAME', 'LSTREET1', 'LSTREET2', 'LCITY', 'LSTATE', 'LZIP',

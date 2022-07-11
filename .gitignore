@@ -6,8 +6,12 @@ raw_data/fhfa/pickled_files/*
 raw_data/dept_of_education/pickled_files/*
 */test.csv
 raw_data/dept_of_education/test.csv
+raw_data/voting/voting_data/*
+raw_data/voting/pickled_files/*
+raw_data/voting/test.csv
 
 venv/
+
 
 
 # exception to the rule
