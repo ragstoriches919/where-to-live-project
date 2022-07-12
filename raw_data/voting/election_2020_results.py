@@ -23,7 +23,7 @@ def get_df_voting_results_2020():
         df_votes = df_votes.drop(columns=["type", "properties.votes_per_sqkm", "properties.pct_dem_lead", "geometry.type",
                               "geometry.coordinates"])
         df_votes["fips"] = df_votes["properties.GEOID"].str[:5]
-        df_votes["precinct_name"] = df_votes["properties.GEOID"].str[6:]
+        df_votes["precinct_name"] = df_votes["properties.GEOID"].str[5:].apply(lambda x: x.strip())
 
         df_fips = pd.read_csv(cfg.CSV_FIP_CODES)
         df_fips["CountyFIPS"] = df_fips["CountyFIPS"].astype(str).apply(lambda x: "0" + str(x) if int(x) < 10000 else str(x))
