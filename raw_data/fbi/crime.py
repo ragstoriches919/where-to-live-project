@@ -10,6 +10,7 @@ import requests
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 API_KEY_FBI = cfg.API_KEY_FBI
+PICKLE_CRIME_IN_THE_US = os.path.join(cfg.ROOT_DIR, "raw_data/fbi/pickled_files/crime_in_the_us.pkl")
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Work Functions
@@ -35,16 +36,31 @@ def get_df_fbi_originating_agency_identifiers():
     return df_oris
 
 
-def get_df_crime():
-    url = r"api.usa.gov/crime/fbi/sapi/"
+def get_df_crime(year_start, year_end):
+    header_url = r"https://api.usa.gov/crime/fbi/sapi/"
 
-    full_url = f"https://api.usa.gov/crime/fbi/sapi/api/summarized/state/CT/larceny/2015/2020?API_KEY={cfg.API_KEY_FBI}"
-    response = requests.get(full_url).json()
+    df_oris = get_df_fbi_originating_agency_identifiers()
+
     data = []
 
-    df = pd.json_normalize(response["results"])
-    print(df)
-    return df
+    # Loop through ORIs and calculate all crime stats in the given year range
+    # for ori in df_oris["ori"].unique():
+    for ori in df_oris["state_abbr"].unique():
+
+        full_url = f"{header_url}/api/summarized/agencies/{ori}/offenses/{year_start}/{year_end}?API_KEY={cfg.API_KEY_FBI}"
+        print(full_url)
+        response = requests.get(full_url).json()
+        print(response)
+
+        for ori_dict in response["results"]:
+            data.append(ori_dict)
+
+    df_crime = pd.DataFrame(data)
+    df_crime.to_pickle(PICKLE_CRIME_IN_THE_US)
+
+    return df_crime
+
+
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Main
@@ -53,4 +69,5 @@ def get_df_crime():
 
 if __name__ == "__main__":
 
-    df = get_df_fbi_originating_agency_identifiers()
+    # df = get_df_crime(2019, 2020)
+

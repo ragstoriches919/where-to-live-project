@@ -9,6 +9,7 @@ raw_data/dept_of_education/test.csv
 raw_data/voting/voting_data/*
 raw_data/voting/pickled_files/*
 raw_data/voting/test.csv
+raw_data/fbi/pickled_files/*
 
 venv/
 
