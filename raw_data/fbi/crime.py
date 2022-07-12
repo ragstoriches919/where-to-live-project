@@ -37,28 +37,37 @@ def get_df_fbi_originating_agency_identifiers():
 
 
 def get_df_crime(year_start, year_end):
+
+    """
+    Grabs crime stats from every ORI (originating agency identifiers) in the US.  There are 18,000+ ORIs, so this takes a while...
+    :param year_start: Integer
+    :param year_end: Integer
+    :return: None ... maybe change this to return something?
+    """
+
     header_url = r"https://api.usa.gov/crime/fbi/sapi/"
 
     df_oris = get_df_fbi_originating_agency_identifiers()
 
-    data = []
+    # Loop through states and ORIs in each state and grab all crime stats in the given year range
+    for state in df_oris["state_abbr"].unique():
+        data = []
+        for ori in df_oris.loc[df_oris["state_abbr"] == state]["ori"].unique():
 
-    # Loop through ORIs and calculate all crime stats in the given year range
-    # for ori in df_oris["ori"].unique():
-    for ori in df_oris["state_abbr"].unique():
+            full_url = f"{header_url}/api/summarized/agencies/{ori}/offenses/{year_start}/{year_end}?API_KEY={cfg.API_KEY_FBI}"
+            print(full_url)
+            response = requests.get(full_url).json()
+            print(response)
 
-        full_url = f"{header_url}/api/summarized/agencies/{ori}/offenses/{year_start}/{year_end}?API_KEY={cfg.API_KEY_FBI}"
-        print(full_url)
-        response = requests.get(full_url).json()
-        print(response)
+            # Grab all dictionaries for given ori and add to data list
+            for ori_dict in response["results"]:
+                data.append(ori_dict)
 
-        for ori_dict in response["results"]:
-            data.append(ori_dict)
+        # Create a state-specific pickle file
+        df_crime = pd.DataFrame(data)
+        state_specific_pickle = PICKLE_CRIME_IN_THE_US.replace("crime_in_the_us", "crime_in_the_us_{}".format(state) )
+        df_crime.to_pickle(state_specific_pickle)
 
-    df_crime = pd.DataFrame(data)
-    df_crime.to_pickle(PICKLE_CRIME_IN_THE_US)
-
-    return df_crime
 
 
 
@@ -69,5 +78,5 @@ def get_df_crime(year_start, year_end):
 
 if __name__ == "__main__":
 
-    # df = get_df_crime(2019, 2020)
+    df = get_df_crime(2019, 2020)
 
