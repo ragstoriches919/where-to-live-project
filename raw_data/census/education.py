@@ -36,7 +36,6 @@ def get_df_education_level(year, state_abbrev, zcta=None):
     # Rename columns
     df_educ = df_educ.rename(columns = {"Total: Place Of Birth By Educational Attainment In The United States": "education_total_population_>25"})
     for col in df_educ.columns[:len(census_codes_educ)]:
-        print(col[-1])
         new_col_name = col.strip()
         new_col_name = new_col_name.replace("Total:!!", "education_")
         new_col_name = new_col_name.replace(" Place Of Birth By Educational Attainment In The United States", "")
@@ -51,15 +50,10 @@ def get_df_education_level(year, state_abbrev, zcta=None):
     return df_educ
 
 
-
-
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Main
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 if __name__ == "__main__":
 
-    print(104//102)
-
-    # df = get_df_education_level(2020, "MI", zcta="48130")
-    # print(df)
+    pass

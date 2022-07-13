@@ -51,7 +51,7 @@ def get_df_crime(year_start, year_end):
 
     states_completed = ["AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "GM", "HI", "IA", "ID", "IL",
                         "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE", "NH",
-                        "NJ", "NM", "NV", "NY", "OH", "OK", "OR"]
+                        "NJ", "NM", "NV", "NY", "OH", "OK", "OR", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT"]
 
     # Loop through states and ORIs in each state and grab all crime stats in the given year range
     for state in df_oris["state_abbr"].unique():
@@ -92,6 +92,4 @@ def test(state):
 if __name__ == "__main__":
 
     df = get_df_crime(2019, 2020)
-    # print(df)
-
-    # test("MI")
+    print(df)

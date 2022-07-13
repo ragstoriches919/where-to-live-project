@@ -21,12 +21,12 @@ def get_df_park_data():
     # endpoint = "https://developer.nps.gov/api/v1/parks?stateCode=" + state
 
     url_header = r"https://developer.nps.gov/api/v1/parks"
-    # url = f"{url_header}?state_code={state_abbrev.lower()}&api_key={API_KEY_NATIONAL_PARK_SERVICE}"
-    url = f"{url_header}?&api_key={API_KEY_NATIONAL_PARK_SERVICE}"
+    url = f"{url_header}?&limit=1000&api_key={API_KEY_NATIONAL_PARK_SERVICE}"
 
     print(url)
     response = requests.get(url).json()
 
+    # Loop through and clean up certain columns that have too many dictionaries
     for park in response["data"]:
         park["activities_list"] = ", ".join([i['name'] for i in park["activities"]])
         park["topics_list"] = ", ".join([i['name'] for i in park["topics"]])
@@ -42,7 +42,6 @@ def get_df_park_data():
     return df_parks
 
 
-
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Main
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -50,4 +49,5 @@ def get_df_park_data():
 
 if __name__ == "__main__":
 
-    get_df_park_data()
+    df = get_df_park_data()
+    print(df)
