@@ -63,7 +63,7 @@ def get_dict_new_census_column_names(census_codes):
 
         new_column_name = (label + " " + concept).title()
 
-        dict[row["census_code"]] = new_column_name
+        dict[row["census_code"]] = new_column_name.strip()
 
     return dict
 

@@ -3,6 +3,10 @@ import cfg
 import pandas as pd
 
 
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Work Functions
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 def get_df_population_stats_by_age(year, state_abbrev, zcta=None):
 
     group = "B01001"

@@ -67,7 +67,12 @@ def get_df_median_home_value(year, state_abbrev, zcta=None):
 
     group = "B25077"
     census_codes_median_value = census.get_list_census_codes_by_group(group)
-    df_median_value = census.get_df_census_data(census_codes_median_value, year, state_abbrev, zcta=zcta)
+    df_median_value = census.get_df_census_data(census_codes_median_value, year, state_abbrev, zcta=None)
+    df_median_value = df_median_value.loc[df_median_value["Median Value (Dollars)"] > 0]
+    df_median_value["median_home_value_percentile_state"] = df_median_value["Median Value (Dollars)"].rank(pct = True)
+
+    if zcta:
+        df_median_value = df_median_value.loc[df_median_value["zcta"] == zcta]
 
     return df_median_value
 
@@ -87,7 +92,6 @@ def get_df_housing_values(year, state_abbrev, zcta=None):
     census_codes_housing_values = census.get_list_census_codes_by_group(group)
     df_housing_values = census.get_df_census_data(census_codes_housing_values, year, state_abbrev, zcta=zcta)
     df_housing_values = df_housing_values.rename(columns = {"Total: Value": "total_number_housing_units"})
-
 
     df_housing_values["housing_value_<$100k"] = df_housing_values['Total:!!Less Than $10,000 Value'] + \
                                                df_housing_values['Total:!!$10,000 To $14,999 Value'] + \
@@ -132,6 +136,7 @@ def get_df_housing_values(year, state_abbrev, zcta=None):
 
 if __name__ == "__main__":
 
-    df = get_df_housing_values(2020, "MI", "48130")
-    create_chart_housing_value_shares(df)
+    # df = get_df_housing_values(2020, "MI", "48130")
+    df = get_df_median_home_value(2020, "CT", "06074")
+    print(df)
 

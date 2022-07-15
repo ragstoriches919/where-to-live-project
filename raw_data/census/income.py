@@ -2,8 +2,10 @@ import raw_data.census.census_data as census
 import pandas as pd
 import cfg
 
-
-def get_df_income(year, state_abbrev, zcta=None):
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Work Functions
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+def get_df_median_household_income(year, state_abbrev, zcta=None):
 
     """
     Returns median household income
@@ -16,12 +18,16 @@ def get_df_income(year, state_abbrev, zcta=None):
     group = "B19013"
     census_codes_income = census.get_list_census_codes_by_group(group)
 
-    df_income = census.get_df_census_data(census_codes_income, year, state_abbrev, zcta=zcta)
+    df_income = census.get_df_census_data(census_codes_income, year, state_abbrev, zcta=None)
+    df_income["median_household_income_percentile_state"] = df_income["Median Household Income In The Past 12 Months (In 2019 Inflation-Adjusted Dollars)"].rank(pct=True)
+
+    if zcta:
+        df_income = df_income.loc[df_income["zcta"]==zcta]
 
     return df_income
 
 
-def get_df_income_by_cohort(year, state_abbrev, zcta=None):
+def get_df_household_income_by_cohort(year, state_abbrev, zcta=None):
 
     """
     Returns median household income by income cohort
@@ -65,5 +71,5 @@ def get_df_income_by_cohort(year, state_abbrev, zcta=None):
 
 if __name__ == "__main__":
 
-    df = get_df_income(2020, "MI", zcta="48130")
+    df = get_df_median_household_income(2020, "MI", zcta="48130")
     print(df)
