@@ -1,9 +1,10 @@
+import time
+
 import cfg
 import pandas as pd
-import numpy as np
-import json
 import os
 import requests
+import sqlite3
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Global variables
@@ -74,15 +75,65 @@ def get_df_crime(year_start, year_end):
             df_crime.to_pickle(state_specific_pickle)
 
 
-def test(state):
-    state_specific_pickle = PICKLE_CRIME_IN_THE_US.replace("crime_in_the_us", "crime_in_the_us_{}".format(state))
-    df = pd.read_pickle(state_specific_pickle)
+def get_crime_pickle_files():
+    list_files = os.listdir("pickled_files")
+    return list_files
 
-    df_oris = get_df_fbi_originating_agency_identifiers()
+def create_crime_database():
 
-    df = pd.merge(df, df_oris, on=["ori", "state_abbr"])
+    conn = sqlite3.connect('crime.db')
+    c = conn.cursor()
+    c.execute("""
+        CREATE TABLE crime(
+        ori text,
+        data_year integer,
+        offense text,
+        state_abbr text,
+        cleared integer,
+        actual integer,
+        data_range text
+            
+        )
+    
+    """)
+    conn.commit()
+    conn.close()
 
-    return df
+
+def insert_state_crime_data_into_database(state):
+
+    pickle_name = "pickled_files/crime_in_the_us_{}.pkl".format(state)
+    df = pd.read_pickle(pickle_name)
+
+    conn = sqlite3.connect('crime.db')
+    c = conn.cursor()
+
+    for index, row in df.iterrows():
+        # print(row)
+        ori = row["ori"]
+        year = row["data_year"]
+        offense = row["offense"]
+        state_abbr = row["state_abbr"]
+        cleared = row["cleared"]
+        actual = row["actual"]
+        data_range = row["data_range"]
+
+        c.execute(f"INSERT INTO crime VALUES ('{ori}', '{year}', '{offense}', '{state_abbr}', '{cleared}', '{actual}', '{data_range}')")
+
+    conn.commit()
+    conn.close()
+
+
+def insert_all_states_into_crime_database():
+    states = [state[-6:-4] for state in get_crime_pickle_files()]
+
+    for state in states:
+        print("Working on {}".format(state))
+        start_time = time.time()
+        insert_state_crime_data_into_database(state)
+        total_time = time.time() - start_time
+        print("{} took {} seconds".format(state, total_time))
+
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Main
@@ -91,5 +142,5 @@ def test(state):
 
 if __name__ == "__main__":
 
-    df = get_df_crime(2019, 2020)
-    print(df)
+    create_crime_database()
+    insert_all_states_into_crime_database()
