@@ -13,6 +13,142 @@ import sqlite3
 API_KEY_FBI = cfg.API_KEY_FBI
 PICKLE_CRIME_IN_THE_US = os.path.join(cfg.ROOT_DIR, "raw_data/fbi/pickled_files/crime_in_the_us.pkl")
 
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Helper Functions
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+def get_crime_pickle_files():
+    """
+    Gets list of all files in path fbi/pickled_files
+    :return: List of strings
+    """
+
+    list_files = os.listdir("pickled_files")
+    return list_files
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Database Functions
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+def create_database(db_location, dict_columns):
+
+    """
+    Can create a database with given parameters
+    :param db_location: String.  Filepath.
+    :param dict_columns: Dictionary Ex.) {"ori": "text"}
+    :return: None
+    """
+
+    column_type_pairs = []
+    for key, val in dict_columns.items():
+        column_type_pairs.append(key + " " + val)
+    sql_column_type_strings = (",".join(column_type_pairs))
+
+    conn = sqlite3.connect(db_location)
+    c = conn.cursor()
+    c.execute(f"CREATE TABLE {db_location[:-3]}({sql_column_type_strings})")
+
+    conn.commit()
+    conn.close()
+
+
+def insert_dataframe_into_database(df, database_path):
+
+    conn = sqlite3.connect(database_path)
+    c = conn.cursor()
+
+    row_str = ""
+    for index, row in df.iterrows():
+        for row_index, row_value in row.items():
+            row_str += '"' + str(row_value) + '", '
+        c.execute(f"INSERT INTO {database_path[:-3]} VALUES ({row_str[:-2]})")
+
+
+        row_str = ""
+
+    conn.commit()
+    conn.close()
+
+
+def insert_all_states_into_crime_database():
+
+    """
+    Insert crime data for ALL states into sqlite database.
+    :return: None
+    """
+
+    states_pickles = get_crime_pickle_files()
+
+    for file in states_pickles:
+        print("Working on {}".format(file))
+        start_time = time.time()
+        file_path = "pickled_files/" + file
+        df = pd.read_pickle(file_path)
+        insert_dataframe_into_database(df, "crime.db")
+
+        total_time = time.time() - start_time
+        print(total_time)
+        print("\n")
+
+
+def insert_all_states_into_ori_database():
+
+    """
+    Insert crime data for ALL states into sqlite database.
+    :return: None
+    """
+
+    df_oris = get_df_fbi_originating_agency_identifiers()
+    insert_dataframe_into_database(df_oris, "oris.db")
+
+
+def query_crime_db(state):
+
+    """
+    Queries crime.db and returns a dataframe of results
+    :param state: String Ex.) "CT"
+    :return: DataFrame
+    """
+
+    # Read sqlite query results into a pandas DataFrame
+    conn = sqlite3.connect("crime.db")
+    df = pd.read_sql_query("SELECT * from crime where state_abbr = '{}'".format(state), conn)
+    conn.close()
+
+    return df
+
+
+def query_oris_db():
+
+    conn = sqlite3.connect("oris.db")
+    df_oris = pd.read_sql_query("SELECT * from oris", conn)
+    conn.close()
+
+    return df_oris
+
+
+def create_crime_database():
+    file_path = "crime.db"
+    dict_column_types = {"ori": "text", "data_year": "integer", "offense": "text", "state_abbr": "text",
+                         "cleared": "integer", "actual": "integer", "data_range": "text"}
+
+    create_database(file_path, dict_column_types )
+
+
+def create_ori_database():
+    file_path = "oris.db"
+
+    dict_column_types = {"ori": "text", "agency_name": "text", "agency_type_name": "text", "state_name": "text",
+                         "state_abbr": "text", "division_name": "text", "region_name": "text", "region_desc": "text",
+                         "county_name": "text", 'nibrs': "text", "latitude": "real",
+                         "longitude": "real", "nibrs_start_date": "text"}
+
+    create_database(file_path, dict_column_types)
+
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Work Functions
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -75,64 +211,7 @@ def get_df_crime(year_start, year_end):
             df_crime.to_pickle(state_specific_pickle)
 
 
-def get_crime_pickle_files():
-    list_files = os.listdir("pickled_files")
-    return list_files
 
-def create_crime_database():
-
-    conn = sqlite3.connect('crime.db')
-    c = conn.cursor()
-    c.execute("""
-        CREATE TABLE crime(
-        ori text,
-        data_year integer,
-        offense text,
-        state_abbr text,
-        cleared integer,
-        actual integer,
-        data_range text
-            
-        )
-    
-    """)
-    conn.commit()
-    conn.close()
-
-
-def insert_state_crime_data_into_database(state):
-
-    pickle_name = "pickled_files/crime_in_the_us_{}.pkl".format(state)
-    df = pd.read_pickle(pickle_name)
-
-    conn = sqlite3.connect('crime.db')
-    c = conn.cursor()
-
-    for index, row in df.iterrows():
-        # print(row)
-        ori = row["ori"]
-        year = row["data_year"]
-        offense = row["offense"]
-        state_abbr = row["state_abbr"]
-        cleared = row["cleared"]
-        actual = row["actual"]
-        data_range = row["data_range"]
-
-        c.execute(f"INSERT INTO crime VALUES ('{ori}', '{year}', '{offense}', '{state_abbr}', '{cleared}', '{actual}', '{data_range}')")
-
-    conn.commit()
-    conn.close()
-
-
-def insert_all_states_into_crime_database():
-    states = [state[-6:-4] for state in get_crime_pickle_files()]
-
-    for state in states:
-        print("Working on {}".format(state))
-        start_time = time.time()
-        insert_state_crime_data_into_database(state)
-        total_time = time.time() - start_time
-        print("{} took {} seconds".format(state, total_time))
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -142,5 +221,15 @@ def insert_all_states_into_crime_database():
 
 if __name__ == "__main__":
 
-    create_crime_database()
-    insert_all_states_into_crime_database()
+    # create_crime_database()
+    # insert_all_states_into_crime_database()
+
+    create_ori_database()
+    insert_all_states_into_ori_database()
+
+    df = get_df_fbi_originating_agency_identifiers()
+    for col in df.columns:
+        print(col)
+
+    # df = query_oris_db()
+    # print(df)
