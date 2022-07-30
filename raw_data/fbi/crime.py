@@ -211,7 +211,15 @@ def get_df_crime(year_start, year_end):
             df_crime.to_pickle(state_specific_pickle)
 
 
+def get_df_crime_cached(state):
 
+    df_crime = query_crime_db(state)
+    df_oris = query_oris_db()
+    common_columns = list(set(df_crime.columns).intersection(set(df_oris.columns)))
+
+    df_crime = pd.merge(df_crime, df_oris, on=common_columns)
+
+    return df_crime
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -221,5 +229,5 @@ def get_df_crime(year_start, year_end):
 
 if __name__ == "__main__":
 
-    create_ori_database()
-    insert_all_states_into_ori_database()
+    print(get_df_crime_cached("CT"))
+

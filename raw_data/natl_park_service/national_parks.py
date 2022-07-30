@@ -18,7 +18,11 @@ API_KEY_NATIONAL_PARK_SERVICE = cfg.API_KEY_NATIONAL_PARK_SERVICE
 
 
 def get_df_park_data():
-    # endpoint = "https://developer.nps.gov/api/v1/parks?stateCode=" + state
+
+    """
+    Kind of fun - national park DataFrame.  But only provides info for the really big national parks.
+    :return: DataFrame
+    """
 
     url_header = r"https://developer.nps.gov/api/v1/parks"
     url = f"{url_header}?&limit=1000&api_key={API_KEY_NATIONAL_PARK_SERVICE}"
