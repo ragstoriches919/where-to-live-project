@@ -64,8 +64,8 @@ def insert_dataframe_into_database(df, database_path):
     for index, row in df.iterrows():
         for row_index, row_value in row.items():
             row_str += '"' + str(row_value) + '", '
-        c.execute(f"INSERT INTO {database_path[:-3]} VALUES ({row_str[:-2]})")
-
+        # print(row_str[:-2])
+        c.execute(f"INSERT INTO {database_path[:-3]} VALUES ({row_str[:-2].strip()})")
 
         row_str = ""
 
@@ -221,15 +221,5 @@ def get_df_crime(year_start, year_end):
 
 if __name__ == "__main__":
 
-    # create_crime_database()
-    # insert_all_states_into_crime_database()
-
     create_ori_database()
     insert_all_states_into_ori_database()
-
-    df = get_df_fbi_originating_agency_identifiers()
-    for col in df.columns:
-        print(col)
-
-    # df = query_oris_db()
-    # print(df)
