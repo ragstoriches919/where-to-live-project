@@ -1,6 +1,5 @@
 import raw_data.census.census_data as census
-import pandas as pd
-import cfg
+
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Helper Functions
@@ -30,6 +29,14 @@ def get_df_education_level_percentages(df_educ):
 
 def get_df_education_level(year, state_abbrev, zcta=None):
 
+    """
+    Gets data by educational attainment, e.g. high school, undergrad, grad, etc.
+    :param year: integer Ex.) 2019
+    :param state_abbrev: String Ex.) "CT"
+    :param zcta: String Ex.) "06074"
+    :return: DataFrame
+    """
+
     census_codes_educ = ['B06009_001E', 'B06009_002E', 'B06009_003E', 'B06009_004E', 'B06009_005E', 'B06009_006E']
     df_educ = census.get_df_census_data(census_codes_educ, year, state_abbrev, zcta=zcta)
 
@@ -56,4 +63,5 @@ def get_df_education_level(year, state_abbrev, zcta=None):
 
 if __name__ == "__main__":
 
-    pass
+    df = get_df_education_level(2020, "CT", "06074")
+    print(df)

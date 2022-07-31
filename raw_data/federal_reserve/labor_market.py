@@ -1,8 +1,3 @@
-import raw_data.census.census_data as census
-import pandas as pd
-import numpy as np
-import cfg
-from fredapi import Fred
 import fred_data
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -49,4 +44,4 @@ if __name__ == "__main__":#
 
     print(helper_find_indeed_postings_ids())
 
-    get_df_indeed_job_postings()
+    # get_df_indeed_job_postings()

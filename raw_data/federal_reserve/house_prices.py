@@ -1,8 +1,3 @@
-import raw_data.census.census_data as census
-import pandas as pd
-import numpy as np
-import cfg
-from fredapi import Fred
 import fred_data
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -9,6 +9,12 @@ import cfg
 
 def get_df_income_percentages(df_income):
 
+    """
+    Get DataFrame by income %.  Helper function for get_df_income()
+    :param df_income: DataFrame, from get_df_income()
+    :return: DataFrame
+    """
+
     for col in [i for i in df_income.columns if "Household Income" in i]:
         if "Total: Household Income In The Past 12 Months" not in col:
             demographic = col.split(" ")[2]
@@ -74,7 +80,6 @@ def get_df_income_by_cohort(year, state_abbrev, zcta=None):
     df_income_cohorts = get_df_income_percentages(df_income_cohorts)
 
     return df_income_cohorts
-
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
