@@ -6,6 +6,7 @@ NOAA_TOKEN = r"kOKWxjRWxlMRqNUUwihFmRXklcbIDqeZ"
 API_KEY_DEPT_OF_EDUCATION = r"4GY0IRhzc3so1dsySovTIVrboBCgIiHwmgLDSnjr"
 API_KEY_FBI = r"QWuUj9UyWMs08syMCw8xCr7YOhgKBX2mraW7uEaY"
 API_KEY_NATIONAL_PARK_SERVICE = r"4lRbwQhgq6wl5bD0ul1QkIJwzsU45zFkU9rEXaY7"
+API_KEY_FRED = r"034fc1b6454fa9083ed93717e82ff531"
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 CSV_CENSUS_CODES = os.path.join(ROOT_DIR, "helper_data", "census_codes.csv")

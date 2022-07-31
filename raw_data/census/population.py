@@ -5,6 +5,14 @@ import pandas as pd
 
 def get_df_population_stats_by_age(year, state_abbrev, zcta=None):
 
+    """
+    Returns population stats by age
+    :param year: Integer
+    :param state_abbrev: String Ex.) "CT"
+    :param zcta: String Ex.) "06074"
+    :return: DataFrame
+    """
+
     group = "B01001"
     census_codes_age = census.get_list_census_codes_by_group(group)
     df_population = census.get_df_census_data(census_codes_age, year, state_abbrev, zcta = zcta)

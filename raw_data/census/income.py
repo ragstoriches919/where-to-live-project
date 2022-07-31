@@ -2,6 +2,24 @@ import raw_data.census.census_data as census
 import pandas as pd
 import cfg
 
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Helper Functions
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+def get_df_income_percentages(df_income):
+
+    for col in [i for i in df_income.columns if "Household Income" in i]:
+        if "Total: Household Income In The Past 12 Months" not in col:
+            demographic = col.split(" ")[2]
+            df_income["%_Household Income" + demographic] = df_income[col] / df_income["Total: Household Income In The Past 12 Months (In 2019 Inflation-Adjusted Dollars)"]
+
+    return df_income
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Work Functions
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 def get_df_income(year, state_abbrev, zcta=None):
 
@@ -51,18 +69,11 @@ def get_df_income_by_cohort(year, state_abbrev, zcta=None):
         'Total:!!$100,000 To $124,999 Household Income In The Past 12 Months (In 2019 Inflation-Adjusted Dollars)': 'Household Income 100-125k',
         'Total:!!$125,000 To $149,999 Household Income In The Past 12 Months (In 2019 Inflation-Adjusted Dollars)': 'Household Income 125-150k',
         'Total:!!$150,000 To $199,999 Household Income In The Past 12 Months (In 2019 Inflation-Adjusted Dollars)': 'Household Income 150-200k',
-        'Total:!!$200,000 Or More Household Income In The Past 12 Months (In 2019 Inflation-Adjusted Dollars)': '>200k'})
+        'Total:!!$200,000 Or More Household Income In The Past 12 Months (In 2019 Inflation-Adjusted Dollars)': 'Household Income >200k'})
 
-    for column in df_income_cohorts.columns:
-        print(column)
+    df_income_cohorts = get_df_income_percentages(df_income_cohorts)
 
     return df_income_cohorts
-
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Relative to Population
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
 
 
 
@@ -70,7 +81,9 @@ def get_df_income_by_cohort(year, state_abbrev, zcta=None):
 # Main
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
 if __name__ == "__main__":
 
-    df = get_df_income_by_cohort(2020, "MI", zcta="48130")
-    print(df)
+    df = get_df_income_by_cohort(2020, "CT", zcta="06074")
+    df_pe = get_df_income_percentages(df)
+    print(df_pe)

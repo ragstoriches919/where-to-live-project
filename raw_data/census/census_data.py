@@ -3,7 +3,7 @@ import requests
 import cfg
 import os
 import numpy as np
-import raw_data.fhfa.fhfa_data as fhfa
+import raw_data.fhfa.house_prices as fhfa
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Global variables
