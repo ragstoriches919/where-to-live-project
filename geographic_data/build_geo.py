@@ -20,10 +20,12 @@ CSV_ZIPCODE_TO_COUNTY = cfg.CSV_ZIPCODE_TO_COUNTY
 CSV_ZIPCODE_TO_SUB_COUNTY = cfg.CSV_ZIPCODE_TO_SUB_COUNTY
 CSV_FIPS = cfg.CSV_FIP_CODES
 CSV_CBSA_CODE_MAPPINGS = cfg.CSV_CBSA_CODE_MAPPINGS
+CSV_CBSA_CODE_MAPPINGS_FROM_OMB = cfg.CSV_CBSA_CODE_MAPPINGS_FROM_OMB
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Work Functions
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 def get_df_zip_codes():
     # https://udsmapper.org/zip-code-to-zcta-crosswalk/
@@ -79,13 +81,26 @@ def get_df_zcta_to_sub_county():
 
 def get_df_cbsa_codes():
 
-    df_cbsa = pd.read_csv(CSV_CBSA_CODE_MAPPINGS)
-    df_cbsa["cbsa_code"] = pd.to_numeric(df_cbsa["cbsa_code"], errors = "coerce")
+    # Source (Other): https://www.uspto.gov/web/offices/ac/ido/oeip/taf/cls_cbsa/cbsa_countyassoc.htm
+    # Better source (OMB):  https://www.census.gov/geographies/reference-files/time-series/demo/metro-micro/delineation-files.html
 
-    return df_cbsa
+    df_cbsa_omb = pd.read_csv(CSV_CBSA_CODE_MAPPINGS_FROM_OMB)
+    df_cbsa_other = pd.read_csv(CSV_CBSA_CODE_MAPPINGS)
+    df_cbsa_other = df_cbsa_other.replace("Micropolitan Area", "Micropolitan Statistical Area")
+    df_cbsa_other = df_cbsa_other.replace("Metropolitan Area", "Metropolitan Statistical Area")
+
+    df_cbsa_all = pd.merge(df_cbsa_omb[["cbsa_code", "cbsa_name", "cbsa_category"]],
+                           df_cbsa_other[["cbsa_code", "cbsa_name", "cbsa_category"]], how='outer')
+
+    df_cbsa_all = df_cbsa_all.drop_duplicates()
+
+    # return df_cbsa_all
+    return df_cbsa_omb[["cbsa_code", "cbsa_name", "cbsa_category"]]
 
 
 def build_geographic_database():
+
+    #TODO: There are way too many duplicates in df_geo.  figure out why.
 
     df_zips = get_df_zip_codes()
     df_msa = get_df_zcta_to_cbsa()
@@ -97,9 +112,11 @@ def build_geographic_database():
     df_geo = pd.merge(df_geo, df_county[["zip", "county", "county_name"]], left_on="zcta", right_on="zip", how='left')
     df_geo = pd.merge(df_geo, df_cbsa, left_on="cbsa", right_on="cbsa_code", how="left")
 
+    nullz = df_geo.loc[df_geo["cbsa_code"].isnull()]["cbsa"].unique()
+    for i in range(len(nullz)):
+        print(nullz[i])
 
-    print(df_geo)
-
+    return df_geo
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Main
@@ -110,3 +127,5 @@ if __name__ == "__main__":
 
     df = build_geographic_database()
     print(df)
+
+    # get_df_cbsa_codes()

@@ -17,6 +17,7 @@ CSV_ZIPCODE_TO_ZCTA = os.path.join(ROOT_DIR, "helper_data", "zip_code_to_zcta_20
 CSV_ZIPCODE_TO_COUNTY = os.path.join(ROOT_DIR, "helper_data", "zip_to_county_crosswalk.csv")
 CSV_ZIPCODE_TO_SUB_COUNTY = os.path.join(ROOT_DIR, "helper_data", "zip_to_subcounty_crosswalk.csv")
 CSV_CBSA_CODE_MAPPINGS = os.path.join(ROOT_DIR, "helper_data", "cbsa_code_mappings.csv")
+CSV_CBSA_CODE_MAPPINGS_FROM_OMB = os.path.join(ROOT_DIR, "helper_data", "cbsa_code_mappings_from_omb.csv") # Better source
 
 CSV_FIP_CODES = os.path.join(ROOT_DIR, "helper_data", "fip_codes.csv")
 
