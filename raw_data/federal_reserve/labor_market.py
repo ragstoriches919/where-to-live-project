@@ -42,6 +42,6 @@ def get_df_indeed_job_postings(start_date=None, end_date=None):
 
 if __name__ == "__main__":#
 
-    print(helper_find_indeed_postings_ids())
+    print(get_df_indeed_job_postings())
 
     # get_df_indeed_job_postings()

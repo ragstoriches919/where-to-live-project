@@ -14,11 +14,9 @@ API_KEY_CENSUS = cfg.API_KEY_CENSUS
 CSV_CENSUS_CODES = cfg.CSV_CENSUS_CODES
 CSV_STATE_CODES = cfg.CSV_STATE_CODES
 CSV_ZCTA_TO_MSA = cfg.CSV_ZTCA_TO_MSA
-# EXCEL_ZIPCODE_TO_ZCTA = cfg.EXCEL_ZIPCODE_TO_ZCTA
 CSV_ZIPCODE_TO_ZCTA = cfg.CSV_ZIPCODE_TO_ZCTA
 
 PICKLE_POPULATION_ALL_ZIPS = os.path.join(cfg.ROOT_DIR, "raw_data/census/pickled_files/population_for_all_zips.pkl")
-
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Helper Functions

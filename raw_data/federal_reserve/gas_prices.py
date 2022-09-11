@@ -38,8 +38,5 @@ def get_df_gas_prices(start_date=None, end_date=None):
 
 if __name__ == "__main__":
 
-    # df = fred_data.search_for_ids_by_category(32217)
-    # df.to_csv('test.csv')
-
     print(get_df_gas_prices("2020-01-01", "2022-12-31"))
 

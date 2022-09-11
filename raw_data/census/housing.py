@@ -39,7 +39,6 @@ def create_chart_housing_value_shares(df_housing):
     cols_in_chart = df_housing.columns
     y_values = df_housing[cols_in_chart].values.flatten().tolist()
 
-
     x_values = cols_in_chart
     sns.set_style('whitegrid')
     ax = sns.barplot(x_values, y_values, color="#419ff2")
@@ -133,5 +132,6 @@ def get_df_housing_values(year, state_abbrev, zcta=None):
 if __name__ == "__main__":
 
     df = get_df_housing_values(2020, "MI", "48130")
-    create_chart_housing_value_shares(df)
+    print(df)
+    # create_chart_housing_value_shares(df)
 
