@@ -4,6 +4,7 @@ import cfg
 import os
 import numpy as np
 import raw_data.fhfa.house_prices as fhfa
+import geographic_data.build_geo as geo
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Global variables
@@ -80,24 +81,24 @@ def get_dict_column_types(census_codes):
     return dict_types
 
 
-def get_df_zip_codes():
-    # https://udsmapper.org/zip-code-to-zcta-crosswalk/
-    # df_zip_codes = pd.read_excel(EXCEL_ZIPCODE_TO_ZCTA, dtype='str', engine='openpyxl')
-    df_zip_codes = pd.read_csv(CSV_ZIPCODE_TO_ZCTA, encoding='latin-1')
-    df_zip_codes.columns = df_zip_codes.columns.str.lower()
-    df_zip_codes = df_zip_codes.loc[df_zip_codes["zip_join_type"] == "Zip matches ZCTA"]
-    df_zip_codes.columns = ["zip_code", "po_name", "state", "zip_type", "zcta", "zip_join_type"]
-
-    return df_zip_codes
-
-
-def get_df_zcta_to_msa():
-    df_zips = pd.read_csv(CSV_ZCTA_TO_MSA, encoding='latin-1')
-    df_zips['zcta5'] = df_zips['zcta5'].astype(str).str.zfill(5)
-    df_zips = df_zips.rename(columns={"zcta5": "zcta", "cbsaname15": "cbsa_name"})
-    df_zips = df_zips[["zcta", "cbsa"]]
-
-    return df_zips
+# def get_df_zip_codes():
+#     # https://udsmapper.org/zip-code-to-zcta-crosswalk/
+#     # df_zip_codes = pd.read_excel(EXCEL_ZIPCODE_TO_ZCTA, dtype='str', engine='openpyxl')
+#     df_zip_codes = pd.read_csv(CSV_ZIPCODE_TO_ZCTA, encoding='latin-1')
+#     df_zip_codes.columns = df_zip_codes.columns.str.lower()
+#     df_zip_codes = df_zip_codes.loc[df_zip_codes["zip_join_type"] == "Zip matches ZCTA"]
+#     df_zip_codes.columns = ["zip_code", "po_name", "state", "zip_type", "zcta", "zip_join_type"]
+#
+#     return df_zip_codes
+#
+#
+# def get_df_zcta_to_msa():
+#     df_zips = pd.read_csv(CSV_ZCTA_TO_MSA, encoding='latin-1')
+#     df_zips['zcta5'] = df_zips['zcta5'].astype(str).str.zfill(5)
+#     df_zips = df_zips.rename(columns={"zcta5": "zcta", "cbsaname15": "cbsa_name"})
+#     df_zips = df_zips[["zcta", "cbsa"]]
+#
+#     return df_zips
 
 
 def get_df_census_codes(year=2019):
@@ -125,7 +126,6 @@ def get_df_census_codes(year=2019):
                                    columns=["census_code", "label", "concept", "predicateType", "group", "limit",
                                             "attributes"])
     df_census_codes = df_census_codes.sort_values(by=["census_code"])
-    # df_census_codes.to_csv(CSV_CENSUS_CODES, index=False)
 
     return df_census_codes
 
@@ -245,18 +245,19 @@ def get_df_census_data(census_codes, year, state_abbrev, zcta=None):
     df = df.rename(columns={"zip code tabulation area": "zcta", "state":"state_code"})
 
     if year == 2020 and zcta is None:
-        df_zips = get_df_zip_codes()
+        # df_zips = get_df_zip_codes()
+
+        df_zips = geo.get_df_zip_code_complete()
         df_zips = df_zips.loc[df_zips["state"] == state_abbrev]
-        df = pd.merge(df, df_zips, on = "zcta")
-        df = pd.merge(df, get_df_zcta_to_msa(), on="zcta", how='left')
+        df = pd.merge(df, df_zips, left_on = "zcta", right_on="zip")
     else:
         # Merge zip codes database
-        df = pd.merge(df, get_df_zip_codes(), on="zcta")
-        df = pd.merge(df, get_df_zcta_to_msa(), on="zcta", how='left')
+        df_zips = geo.get_df_zip_code_complete()
+        df = pd.merge(df, df_zips, left_on="zcta", right_on="zip")
         df["year"] = year
 
     if zcta is not None:
-        df = df.loc[df["zcta"] == zcta]
+        df = df.loc[df["zip"] == zcta]
 
     # Change types (usually to pd.to_numeric())
     dict_types = get_dict_column_types(census_codes_from_json)
@@ -266,7 +267,7 @@ def get_df_census_data(census_codes, year, state_abbrev, zcta=None):
 
     # Change column names
     df = df.rename(columns=dict_new_cols)
-    df["zip_code"] = df["zip_code"].apply(lambda x: "0" + str(x) if x < 10000 else str(x))
+    # df["zip_code"] = df["zip_code"].apply(lambda x: "0" + str(x) if x < 10000 else str(x))
 
     return df
 
@@ -278,6 +279,7 @@ def get_df_census_data(census_codes, year, state_abbrev, zcta=None):
 if __name__ == "__main__":
     codes = ["B02015_002E"]
 
-    df = get_df_census_data(codes, 2019, "CT", zcta="06074")
+    df = get_df_census_data(codes, 2020, "CT", zcta="06074")
+
     print(df)
 
