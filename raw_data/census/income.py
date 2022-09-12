@@ -1,6 +1,9 @@
 import raw_data.census.census_data as census
 import pandas as pd
+import numpy as np
 import cfg
+
+import geographic_data.build_geo as geo
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Helper Functions
@@ -23,11 +26,55 @@ def get_df_income_percentages(df_income):
     return df_income
 
 
+def get_df_income_percentile_state(year, state):
+
+    df_zip = geo.get_df_zip_code_complete(use_csv=True)
+
+    # Percentile ranks for state the zip is in.
+    groupby_cols = ["state"]
+    df_income = get_df_median_income(year, state)
+    df_income["percentile_median_income_state"] = df_income.groupby(groupby_cols)["median_household_income_2019_dollars"].rank(pct=True)
+
+    # Fix column order
+    columns_order = list(set(df_income.columns) - set(df_zip.columns)) + list(df_zip.columns)
+    df_income = df_income[columns_order]
+
+    return df_income
+
+
+def get_df_percentile_cbsa(year, cbsa_name):
+    df_zip = geo.get_df_zip_code_complete(use_csv=True)
+    df_zip = df_zip.loc[df_zip["cbsa_name"] == cbsa_name]
+    cbsa_states = df_zip["cbsa_states"].iloc[0].split(",")
+
+    df_income_cbsa = None
+    for state in cbsa_states:
+        df_income_state = get_df_median_income(year, state)
+        if df_income_cbsa is None:
+            df_income_cbsa = df_income_state
+        else:
+            df_income_cbsa = pd.concat([df_income_cbsa, df_income_state])
+
+    # Calculate income percentiles
+    df_income_cbsa = df_income_cbsa.loc[df_income_cbsa["cbsa_name"] == cbsa_name]
+    groupby_cols = ["cbsa_name"]
+    df_income_cbsa["percentile_median_income_cbsa"] = df_income_cbsa.groupby(groupby_cols)["median_household_income_2019_dollars"].rank(pct=True)
+
+    # Fix column order
+    columns_order = list(set(df_income_cbsa.columns) - set(df_zip.columns)) + list(df_zip.columns)
+    df_income_cbsa = df_income_cbsa[columns_order]
+
+    return df_income_cbsa
+
+    
+
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Work Functions
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-def get_df_income(year, state_abbrev, zcta=None):
+
+def get_df_median_income(year, state_abbrev, zcta=None):
 
     """
     Returns median household income
@@ -41,6 +88,9 @@ def get_df_income(year, state_abbrev, zcta=None):
     census_codes_income = census.get_list_census_codes_by_group(group)
 
     df_income = census.get_df_census_data(census_codes_income, year, state_abbrev, zcta=zcta)
+    df_income = df_income.rename(columns={
+        "Median Household Income In The Past 12 Months (In 2019 Inflation-Adjusted Dollars) ": "median_household_income_2019_dollars"})
+    df_income = df_income.loc[df_income["median_household_income_2019_dollars"] >= 0]
 
     return df_income
 
@@ -89,6 +139,9 @@ def get_df_income_by_cohort(year, state_abbrev, zcta=None):
 
 if __name__ == "__main__":
 
-    df = get_df_income_by_cohort(2020, "CT", zcta="06074")
-    df_pe = get_df_income_percentages(df)
-    print(df_pe)
+    # df = get_df_median_income(2020, "CT")
+    # df = get_df_income_percentiles(2020, "06074")
+
+    # get_df_income_percentile_state(2020, "CT")
+
+    get_df_percentile_cbsa(2020, "Worcester, MA-CT")

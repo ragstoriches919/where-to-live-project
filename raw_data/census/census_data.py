@@ -242,18 +242,18 @@ def get_df_census_data(census_codes, year, state_abbrev, zcta=None):
 
     dict_new_cols = get_dict_new_census_column_names(census_codes_from_json)
     df = pd.DataFrame(columns=census_codes_from_json, data=data)
-    df = df.rename(columns={"zip code tabulation area": "zcta", "state":"state_code"})
+    df = df.rename(columns={"zip code tabulation area": "zip", "state":"state_code"})
 
     if year == 2020 and zcta is None:
         # df_zips = get_df_zip_codes()
 
         df_zips = geo.get_df_zip_code_complete()
         df_zips = df_zips.loc[df_zips["state"] == state_abbrev]
-        df = pd.merge(df, df_zips, left_on = "zcta", right_on="zip")
+        df = pd.merge(df, df_zips, left_on = "zip", right_on="zip")
     else:
         # Merge zip codes database
         df_zips = geo.get_df_zip_code_complete()
-        df = pd.merge(df, df_zips, left_on="zcta", right_on="zip")
+        df = pd.merge(df, df_zips, left_on="zip", right_on="zip")
         df["year"] = year
 
     if zcta is not None:

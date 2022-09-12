@@ -22,6 +22,39 @@ CSV_ZIPCODE_TO_CBSA = cfg.CSV_ZIPCODE_TO_CBSA
 CSV_FIPS = cfg.CSV_FIP_CODES
 CSV_CBSA_CODE_MAPPINGS_FROM_USPTO = cfg.CSV_CBSA_CODE_MAPPINGS_FROM_USPTO
 CSV_CBSA_CODE_MAPPINGS_FROM_OMB = cfg.CSV_CBSA_CODE_MAPPINGS_FROM_OMB
+CSV_CBSA_STATES = cfg.CSV_CBSA_STATES
+CSV_ZIP_CODE_MAPPINGS_COMPLETE = cfg.CSV_ZIP_CODE_MAPPINGS_COMPLETE
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Helper Functions
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+def get_states_in_cbsa(df_geo, cbsa_name):
+
+    states = ",".join(df_geo.loc[df_geo["cbsa_name"]==cbsa_name]["state"].unique())
+
+    return states
+
+
+def get_df_all_states_for_all_cbsa_names(df_geo):
+
+    data = []
+
+    for cbsa_name in df_geo["cbsa_name"].unique():
+        states = get_states_in_cbsa(df_geo, cbsa_name)
+        data.append([cbsa_name, states])
+
+    df_all_cbsa = pd.DataFrame(data=data, columns=["cbsa_name", "cbsa_states"])
+
+    df_all_cbsa.to_csv(CSV_CBSA_STATES, index=False)
+
+    return df_all_cbsa
+
+
+
+
+
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Work Functions
@@ -132,8 +165,6 @@ def get_df_cbsa_codes(missing_cbsa_codes=None):
     df_cbsa_omb = df_cbsa_omb[["cbsa_code", "cbsa_name", "cbsa_category", "csa_title"]]
     df_cbsa_omb = df_cbsa_omb.drop_duplicates()
 
-    # return df_cbsa_omb
-
     # Look for missing codes in df_geo
     if missing_cbsa_codes is not None:
 
@@ -152,12 +183,17 @@ def get_df_cbsa_codes(missing_cbsa_codes=None):
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-def get_df_zip_code_complete():
+def get_df_zip_code_complete(use_csv=True):
 
     """
     Driver function to retrieve complete zip code dataset.
     :return: DataFrame
     """
+
+    if use_csv:
+        df_geo = pd.read_csv(CSV_ZIP_CODE_MAPPINGS_COMPLETE)
+        df_geo['zip'] = df_geo['zip'].astype(str).str.zfill(5)
+        return df_geo
 
     df_zips = get_df_zip_codes()
     df_zip_to_cbsa = get_df_zip_to_cbsa()
@@ -175,6 +211,14 @@ def get_df_zip_code_complete():
     df_geo = pd.merge(df_geo, df_zip_to_sub_county, left_on="zip", right_on="zip", how='left')
     df_geo = pd.merge(df_geo, df_cbsa_codes, on="cbsa_code", how="left")
 
+    # Add list of states for each CBSA
+    df_cbsa_states = get_df_all_states_for_all_cbsa_names(df_geo)
+    df_geo = pd.merge(df_geo, df_cbsa_states, on=["cbsa_name"], how='left')
+
+    df_geo['zip'] = df_geo['zip'].astype(str).str.zfill(5)
+
+    df_geo.to_csv(CSV_ZIP_CODE_MAPPINGS_COMPLETE, index=False)
+
     return df_geo
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -184,7 +228,4 @@ def get_df_zip_code_complete():
 
 if __name__ == "__main__":
 
-    # df = build_geographic_database()
-    # print(df)
-
-    df = get_df_zip_code_complete()
+    df = get_df_zip_code_complete(use_csv=False)
