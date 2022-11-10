@@ -10,6 +10,17 @@ import geographic_data.build_geo as geo
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
+def list_diff(list1, list2):
+    """
+    Returns columns that are in list1, but not in list2
+    (list1 minus list2)
+    :param list1: List
+    :param list2: List
+    :return: List
+    """
+    return list(set(list1) - set(list2))
+
+
 def get_df_income_percentages(df_income):
 
     """
@@ -24,6 +35,27 @@ def get_df_income_percentages(df_income):
             df_income["%_Household Income" + demographic] = df_income[col] / df_income["Total: Household Income In The Past 12 Months (In 2019 Inflation-Adjusted Dollars)"]
 
     return df_income
+
+
+def get_df_income_percentile_zip(year, zip):
+
+    df_all_zips = geo.get_df_zip_code_complete(use_csv=True)
+    df_zip = df_all_zips.loc[df_all_zips["zip"] == zip]
+
+    # Get income percentiles relative to towns in the same state
+    state = df_zip["state"].iloc[0]
+    df_income_state = get_df_income_percentile_state(year, state)
+    state_cols = list_diff(df_income_state.columns, df_zip.columns) + ["zip"]
+    df_zip = pd.merge(df_zip, df_income_state[state_cols], on="zip" )
+
+    # Get income percentiles relative to towns in the same CBSA
+    cbsa_name = df_zip["cbsa_name"].iloc[0]
+    df_income_cbsa = get_df_income_percentile_cbsa(year, cbsa_name)
+    cbsa_cols = list_diff(df_income_cbsa.columns, df_zip.columns) + ["zip"]
+    df_zip = pd.merge(df_zip, df_income_state[cbsa_cols], on="zip")
+    
+    print(df_zip)
+
 
 
 def get_df_income_percentile_state(year, state):
@@ -42,7 +74,7 @@ def get_df_income_percentile_state(year, state):
     return df_income
 
 
-def get_df_percentile_cbsa(year, cbsa_name):
+def get_df_income_percentile_cbsa(year, cbsa_name):
     df_zip = geo.get_df_zip_code_complete(use_csv=True)
     df_zip = df_zip.loc[df_zip["cbsa_name"] == cbsa_name]
     cbsa_states = df_zip["cbsa_states"].iloc[0].split(",")
@@ -65,8 +97,6 @@ def get_df_percentile_cbsa(year, cbsa_name):
     df_income_cbsa = df_income_cbsa[columns_order]
 
     return df_income_cbsa
-
-    
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -144,4 +174,7 @@ if __name__ == "__main__":
 
     # get_df_income_percentile_state(2020, "CT")
 
-    get_df_percentile_cbsa(2020, "Worcester, MA-CT")
+    # get_df_percentile_cbsa(2020, "Worcester, MA-CT")
+    # get_df_income_percentile_zip(2020, "06074")
+    
+    pass

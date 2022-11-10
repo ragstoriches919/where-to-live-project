@@ -23,9 +23,9 @@ def list_diff(list1, list2):
 
 def get_stats_for_zip(year, state_abbrev, zcta):
 
-    census_cols = ["zcta", "zip_code", "po_name", "state", "zip_type", "zip_join_type", "cbsa", "year"]
+    census_cols = ["zip", "town_name", "state", "zip_type", "zip_join_type", "cbsa", "year"]
 
-    df_income = income.get_df_income(year, state_abbrev, zcta=zcta)
+    df_income = income.get_df_median_income(year, state_abbrev, zcta=zcta)
     df_educ = education.get_df_education_level(year, state_abbrev, zcta=zcta)
     df_housing = housing.get_df_median_home_value(year, state_abbrev, zcta=zcta)
 
@@ -45,7 +45,7 @@ def get_stats_for_zip(year, state_abbrev, zcta):
 
 if __name__ == "__main__":
 
-    df = get_stats_for_zip(2020, "CT", "06074")
+    df = get_stats_for_zip(2020, "TX", "76053")
 
 
 
