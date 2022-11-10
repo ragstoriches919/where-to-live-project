@@ -81,26 +81,6 @@ def get_dict_column_types(census_codes):
     return dict_types
 
 
-# def get_df_zip_codes():
-#     # https://udsmapper.org/zip-code-to-zcta-crosswalk/
-#     # df_zip_codes = pd.read_excel(EXCEL_ZIPCODE_TO_ZCTA, dtype='str', engine='openpyxl')
-#     df_zip_codes = pd.read_csv(CSV_ZIPCODE_TO_ZCTA, encoding='latin-1')
-#     df_zip_codes.columns = df_zip_codes.columns.str.lower()
-#     df_zip_codes = df_zip_codes.loc[df_zip_codes["zip_join_type"] == "Zip matches ZCTA"]
-#     df_zip_codes.columns = ["zip_code", "po_name", "state", "zip_type", "zcta", "zip_join_type"]
-#
-#     return df_zip_codes
-#
-#
-# def get_df_zcta_to_msa():
-#     df_zips = pd.read_csv(CSV_ZCTA_TO_MSA, encoding='latin-1')
-#     df_zips['zcta5'] = df_zips['zcta5'].astype(str).str.zfill(5)
-#     df_zips = df_zips.rename(columns={"zcta5": "zcta", "cbsaname15": "cbsa_name"})
-#     df_zips = df_zips[["zcta", "cbsa"]]
-#
-#     return df_zips
-
-
 def get_df_census_codes(year=2019):
 
     """
@@ -128,6 +108,8 @@ def get_df_census_codes(year=2019):
     df_census_codes = df_census_codes.sort_values(by=["census_code"])
 
     return df_census_codes
+
+
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

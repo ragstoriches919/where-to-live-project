@@ -39,6 +39,13 @@ def get_df_income_percentages(df_income):
 
 def get_df_income_percentile_zip(year, zip):
 
+    """
+    Get income percentile by zip
+    :param year: (int) Ex.) 2020
+    :param zip: (str) Ex.) "06074"
+    :return: DataFrame
+    """
+
     df_all_zips = geo.get_df_zip_code_complete(use_csv=True)
     df_zip = df_all_zips.loc[df_all_zips["zip"] == zip]
 
@@ -55,7 +62,6 @@ def get_df_income_percentile_zip(year, zip):
     df_zip = pd.merge(df_zip, df_income_state[cbsa_cols], on="zip")
     
     print(df_zip)
-
 
 
 def get_df_income_percentile_state(year, state):
@@ -75,6 +81,14 @@ def get_df_income_percentile_state(year, state):
 
 
 def get_df_income_percentile_cbsa(year, cbsa_name):
+
+    """
+    Returns the income percentile of all towns in the given CBSA
+    :param year: (int) Ex.) 2020
+    :param cbsa_name: (str) Ex.) "Dallas-Fort Worth-Arlington, TX"
+    :return:
+    """
+
     df_zip = geo.get_df_zip_code_complete(use_csv=True)
     df_zip = df_zip.loc[df_zip["cbsa_name"] == cbsa_name]
     cbsa_states = df_zip["cbsa_states"].iloc[0].split(",")
@@ -169,12 +183,6 @@ def get_df_income_by_cohort(year, state_abbrev, zcta=None):
 
 if __name__ == "__main__":
 
-    # df = get_df_median_income(2020, "CT")
-    # df = get_df_income_percentiles(2020, "06074")
-
-    # get_df_income_percentile_state(2020, "CT")
-
-    # get_df_percentile_cbsa(2020, "Worcester, MA-CT")
-    # get_df_income_percentile_zip(2020, "06074")
-    
-    pass
+    cbsa = "Dallas-Fort Worth-Arlington, TX"
+    df = get_df_income_percentile_cbsa(2020, cbsa)
+    df.to_csv("test.csv")
