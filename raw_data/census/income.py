@@ -4,6 +4,7 @@ import numpy as np
 import cfg
 
 import geographic_data.build_geo as geo
+import helpers_census
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Helper Functions
@@ -89,28 +90,10 @@ def get_df_income_percentile_cbsa(year, cbsa_name):
     :return:
     """
 
-    df_zip = geo.get_df_zip_code_complete(use_csv=True)
-    df_zip = df_zip.loc[df_zip["cbsa_name"] == cbsa_name]
-    cbsa_states = df_zip["cbsa_states"].iloc[0].split(",")
+    col_name = "median_household_income_2019_dollars"
+    df_income_percentile_cbsa = helpers_census.helper_get_df_cbsa_percentile(year, cbsa_name, get_df_median_income, col_name)
 
-    df_income_cbsa = None
-    for state in cbsa_states:
-        df_income_state = get_df_median_income(year, state)
-        if df_income_cbsa is None:
-            df_income_cbsa = df_income_state
-        else:
-            df_income_cbsa = pd.concat([df_income_cbsa, df_income_state])
-
-    # Calculate income percentiles
-    df_income_cbsa = df_income_cbsa.loc[df_income_cbsa["cbsa_name"] == cbsa_name]
-    groupby_cols = ["cbsa_name"]
-    df_income_cbsa["percentile_median_income_cbsa"] = df_income_cbsa.groupby(groupby_cols)["median_household_income_2019_dollars"].rank(pct=True)
-
-    # Fix column order
-    columns_order = list(set(df_income_cbsa.columns) - set(df_zip.columns)) + list(df_zip.columns)
-    df_income_cbsa = df_income_cbsa[columns_order]
-
-    return df_income_cbsa
+    return df_income_percentile_cbsa
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

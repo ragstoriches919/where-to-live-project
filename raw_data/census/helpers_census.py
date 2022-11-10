@@ -6,9 +6,6 @@ import income
 
 import geographic_data.build_geo as geo
 
-# def helper_get_df_cbsa_percentile(year, cbsa_name):
-#     pass
-
 
 def helper_get_df_cbsa_percentile(year, cbsa_name, func_median_for_state, str_col_name):
 
@@ -41,7 +38,7 @@ def helper_get_df_cbsa_percentile(year, cbsa_name, func_median_for_state, str_co
     # Fix column order
     columns_order = list(set(df_cbsa.columns) - set(df_zip.columns)) + list(df_zip.columns)
     df_cbsa = df_cbsa[columns_order]
-    df_cbsa = df_cbsa.sort_values(by=[str_col_name + "_cbsa_percentile"])
+    df_cbsa = df_cbsa.sort_values(by=[str_col_name + "_cbsa_percentile"], ascending=False)
 
     return df_cbsa
 
@@ -55,8 +52,7 @@ def helper_get_df_cbsa_percentile(year, cbsa_name, func_median_for_state, str_co
 if __name__ == "__main__":
 
     col_name = "median_household_income_2019_dollars"
-    cbsa_name = "Dallas-Fort Worth-Arlington, TX"
-    df = income.get_df_median_income(2020, "TX")
+    cbsa_name = "Worcester, MA-CT"
 
     df_cbsa = helper_get_df_cbsa_percentile(2020, cbsa_name, income.get_df_median_income, col_name)
     print(df_cbsa)

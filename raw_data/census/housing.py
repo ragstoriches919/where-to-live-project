@@ -2,7 +2,9 @@ import raw_data.census.census_data as census
 import matplotlib.pyplot as plt
 import pandas as pd
 import cfg
-import seaborn as sns
+# import seaborn as sns
+
+import helpers_census
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Helper Functions
@@ -68,6 +70,9 @@ def get_df_median_home_value(year, state_abbrev, zcta=None):
     census_codes_median_value = census.get_list_census_codes_by_group(group)
     df_median_value = census.get_df_census_data(census_codes_median_value, year, state_abbrev, zcta=zcta)
 
+    df_median_value = df_median_value.rename(columns={
+        "Median Value (Dollars) ": "median_home_value"})
+
     return df_median_value
 
 
@@ -124,6 +129,20 @@ def get_df_housing_values(year, state_abbrev, zcta=None):
     return df_housing_values
 
 
+def get_df_median_home_price_percentile_cbsa(year, cbsa_name):
+
+    """
+    Returns the income percentile of all towns in the given CBSA
+    :param year: (int) Ex.) 2020
+    :param cbsa_name: (str) Ex.) "Dallas-Fort Worth-Arlington, TX"
+    :return:
+    """
+
+    col_name = "median_home_value"
+    df_income_percentile_cbsa = helpers_census.helper_get_df_cbsa_percentile(year, cbsa_name, get_df_median_home_value, col_name)
+
+    return df_income_percentile_cbsa
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Main
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -131,7 +150,12 @@ def get_df_housing_values(year, state_abbrev, zcta=None):
 
 if __name__ == "__main__":
 
-    df = get_df_housing_values(2020, "MI", "48130")
-    print(df)
+    # df = get_df_housing_values(2020, "MI", "48130")
+    # print(df)
     # create_chart_housing_value_shares(df)
+
+    cbsa = "Dallas-Fort Worth-Arlington, TX"
+
+    df = get_df_median_home_price_percentile_cbsa(2020, cbsa)
+    df.to_csv("test.csv")
 
