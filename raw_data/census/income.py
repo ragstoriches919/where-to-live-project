@@ -4,7 +4,7 @@ import numpy as np
 import cfg
 
 import geographic_data.build_geo as geo
-import helpers_census
+import raw_data.census.helpers_census as helpers_census
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Helper Functions
@@ -60,12 +60,19 @@ def get_df_income_percentile_zip(year, zip):
     cbsa_name = df_zip["cbsa_name"].iloc[0]
     df_income_cbsa = get_df_income_percentile_cbsa(year, cbsa_name)
     cbsa_cols = list_diff(df_income_cbsa.columns, df_zip.columns) + ["zip"]
-    df_zip = pd.merge(df_zip, df_income_state[cbsa_cols], on="zip")
+    df_zip = pd.merge(df_income_cbsa[cbsa_cols], df_income_state, on="zip", how="outer")
     
-    print(df_zip)
+    return df_zip
 
 
 def get_df_income_percentile_state(year, state):
+
+    """
+    Returns income percentile by state
+    :param year: (int) Ex.) 2020
+    :param state: (str) Ex.) "CT"
+    :return: DataFrame
+    """
 
     df_zip = geo.get_df_zip_code_complete(use_csv=True)
 
@@ -158,6 +165,19 @@ def get_df_income_by_cohort(year, state_abbrev, zcta=None):
 
     return df_income_cohorts
 
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Summary
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+def get_df_zcta_income_summary(year, zip):
+
+    df_summary = get_df_income_percentile_zip(year, zip)
+    df_zip = df_summary.loc[df_summary["zip"] == zip]
+
+    return df_zip
+
+
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Main
@@ -166,6 +186,5 @@ def get_df_income_by_cohort(year, state_abbrev, zcta=None):
 
 if __name__ == "__main__":
 
-    cbsa = "Dallas-Fort Worth-Arlington, TX"
-    df = get_df_income_percentile_cbsa(2020, cbsa)
-    df.to_csv("test.csv")
+    df = get_df_zcta_income_summary(2020, "75075")
+    print(df)

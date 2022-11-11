@@ -4,9 +4,12 @@ import numpy as np
 import json
 import os
 
-import raw_data.census.income as income
 import raw_data.census.education as education
 import raw_data.census.housing as housing
+import raw_data.census.income as income
+
+
+
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Helper Fucntions
@@ -23,7 +26,8 @@ def list_diff(list1, list2):
 
 def get_stats_for_zip(year, state_abbrev, zcta):
 
-    census_cols = ["zip", "town_name", "state", "zip_type", "zip_join_type", "cbsa", "year"]
+    census_cols = ["zip", "town_name", "state", "cbsa_name", "cbsa_category", "cbsa_states", "sub_county_code",
+                   "county_code", "cbsa_code", "county_name", "year", "csa_title"]
 
     df_income = income.get_df_median_income(year, state_abbrev, zcta=zcta)
     df_educ = education.get_df_education_level(year, state_abbrev, zcta=zcta)
@@ -45,7 +49,8 @@ def get_stats_for_zip(year, state_abbrev, zcta):
 
 if __name__ == "__main__":
 
-    df = get_stats_for_zip(2020, "TX", "76053")
+    df = get_stats_for_zip(2020, "CT", "06074")
+    print(df)
 
 
 

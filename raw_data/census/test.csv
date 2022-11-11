@@ -1,258 +1,256 @@
-,median_home_value_cbsa_percentile,median_home_value,zip,town_name,state,cbsa_code,county_code,county_name,sub_county_code,cbsa_name,cbsa_category,csa_title,cbsa_states
-107,1.0,1212700,75205,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-124,0.9961089494163424,1127600,75225,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-338,0.9922178988326849,699200,76092,Southlake,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-129,0.9883268482490273,656600,75230,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-103,0.9844357976653697,630100,75201,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-111,0.980544747081712,576300,75209,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-307,0.9766536964980544,566500,76034,Colleyville,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-115,0.9727626459143969,516200,75214,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-347,0.9688715953307393,498300,76109,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-56,0.9649805447470817,477800,75093,Plano,TX,19100.0,48085,Collin,4808593065,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-47,0.9610894941634242,465100,75078,Prosper,TX,19100.0,48085,Collin,4808590665,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-19,0.9571984435797666,453500,75039,Irving,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-141,0.953307392996109,448300,75244,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-10,0.9494163424124513,446400,75022,Flower Mound,TX,19100.0,48121,Denton,4812192186,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-108,0.9455252918287937,433100,75206,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-12,0.9416342412451362,432500,75024,Plano,TX,19100.0,48085,Collin,4808593065,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-128,0.9377431906614786,430800,75229,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-16,0.933852140077821,428100,75034,Frisco,TX,19100.0,48085,Collin,4808592360,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-6,0.9299610894941635,421400,75013,Allen,TX,19100.0,48085,Collin,4808593065,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-383,0.9260700389105059,420700,76226,Argyle,TX,19100.0,48121,Denton,4812191970,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-144,0.9221789883268483,419300,75248,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-399,0.9182879377431906,418800,76262,Roanoke,TX,19100.0,48121,Denton,4812191970,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-7,0.914396887159533,414000,75019,Coppell,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-147,0.9105058365758755,411000,75252,Dallas,TX,19100.0,48085,Collin,4808593065,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-137,0.9066147859922179,398200,75238,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-101,0.9027237354085603,397800,75182,Sunnyvale,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-393,0.8988326848249028,392000,76248,Keller,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-17,0.8949416342412452,388600,75035,Frisco,TX,19100.0,48085,Collin,4808592360,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-36,0.8891050583657587,378600,75063,Irving,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-106,0.8891050583657587,378600,75204,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-57,0.8832684824902723,367900,75094,Plano,TX,19100.0,48085,Collin,4808593065,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-13,0.8793774319066148,363100,75025,Plano,TX,19100.0,48085,Collin,4808593065,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-50,0.8754863813229572,362300,75082,Richardson,TX,19100.0,48085,Collin,4808593065,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-15,0.8715953307392996,354100,75032,Rockwall,TX,19100.0,48397,Rockwall,4839793665,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-119,0.867704280155642,353700,75218,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-5,0.8618677042801557,347700,75010,Carrollton,TX,19100.0,48121,Denton,4812190637,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-130,0.8618677042801557,347700,75231,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-29,0.8560311284046692,344400,75054,Grand Prairie,TX,19100.0,48439,Tarrant,4843990135,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-14,0.8521400778210116,341100,75028,Flower Mound,TX,19100.0,48121,Denton,4812192186,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-41,0.8482490272373541,341000,75070,McKinney,TX,19100.0,48085,Collin,4808592360,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-289,0.8443579766536965,339400,76008,Aledo,TX,19100.0,48367,Parker,4836794105,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-317,0.8404669260700389,338600,76051,Grapevine,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-142,0.8365758754863813,338500,75246,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-0,0.8326848249027238,337300,75001,Addison,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-42,0.8287937743190662,332300,75071,McKinney,TX,19100.0,48085,Collin,4808592360,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-150,0.8249027237354085,327500,75287,Dallas,TX,19100.0,48121,Denton,4812190637,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-345,0.8210116731517509,327000,76107,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-46,0.8171206225680934,326800,75077,Lewisville,TX,19100.0,48121,Denton,4812192186,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-110,0.8132295719844358,325800,75208,Dallas,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-120,0.8093385214007782,324600,75219,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-48,0.8054474708171206,315500,75080,Richardson,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-178,0.8015564202334631,315000,75454,Melissa,TX,19100.0,48085,Collin,4808590100,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-363,0.7976653696498055,309900,76132,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-40,0.7937743190661478,297200,75069,McKinney,TX,19100.0,48085,Collin,4808592360,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-121,0.7898832684824902,296500,75220,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-51,0.7859922178988327,294100,75087,Rockwall,TX,19100.0,48397,Rockwall,4839792855,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-308,0.7821011673151751,293400,76035,Cresson,TX,19100.0,48221,Hood,4822191605,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-4,0.7782101167315175,293200,75009,Celina,TX,19100.0,48085,Collin,4808590665,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-44,0.77431906614786,292900,75075,Plano,TX,19100.0,48085,Collin,4808593065,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-11,0.7704280155642024,292800,75023,Plano,TX,19100.0,48085,Collin,4808593065,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-1,0.7665369649805448,291600,75002,Allen,TX,19100.0,48085,Collin,4808593065,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-149,0.7626459143968871,288400,75254,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-318,0.7587548638132295,287700,76052,Haslet,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-30,0.754863813229572,286600,75056,The Colony,TX,19100.0,48121,Denton,4812193892,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-324,0.7509727626459144,280600,76063,Mansfield,TX,19100.0,48439,Tarrant,4843990135,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-18,0.7470817120622568,279800,75038,Irving,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-96,0.7431906614785992,278800,75167,Waxahachie,TX,19100.0,48139,Ellis,4813994090,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-39,0.7392996108949417,276700,75068,Little Elm,TX,19100.0,48121,Denton,4812193035,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-340,0.7354085603112841,275800,76102,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-3,0.7315175097276264,269900,75007,Carrollton,TX,19100.0,48121,Denton,4812190637,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-104,0.7276264591439688,269200,75202,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-379,0.7237354085603113,268500,76208,Denton,TX,19100.0,48121,Denton,4812192186,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-320,0.7198443579766537,268100,76054,Hurst,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-390,0.7159533073929961,267700,76244,Keller,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-326,0.7120622568093385,267200,76065,Midlothian,TX,19100.0,48139,Ellis,4813992570,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-397,0.708171206225681,265900,76258,Pilot Point,TX,19100.0,48121,Denton,4812193035,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-140,0.7023346303501945,264800,75243,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-313,0.7023346303501945,264800,76044,Godley,TX,19100.0,48251,Johnson,4825191540,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-336,0.6964980544747081,264600,76087,Weatherford,TX,19100.0,48367,Parker,4836794105,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-378,0.6926070038910506,264400,76207,Denton,TX,19100.0,48121,Denton,4812191010,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-372,0.688715953307393,262400,76177,Fort Worth,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-375,0.6848249027237354,262000,76182,North Richland Hills,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-58,0.6809338521400778,260500,75098,Wylie,TX,19100.0,48085,Collin,4808593065,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-384,0.6770428015564203,259800,76227,Aubrey,TX,19100.0,48121,Denton,4812193035,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-25,0.6731517509727627,259700,75048,Sachse,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-381,0.669260700389105,258900,76210,Denton,TX,19100.0,48121,Denton,4812192186,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-301,0.6653696498054474,258200,76021,Bedford,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-95,0.6614785992217899,258100,75166,Lavon,TX,19100.0,48085,Collin,4808592720,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-337,0.6575875486381323,254500,76088,Weatherford,TX,19100.0,48367,Parker,4836794100,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-49,0.6536964980544747,252600,75081,Richardson,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-288,0.6498054474708171,249200,76006,Arlington,TX,19100.0,48439,Tarrant,4843990135,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-334,0.6459143968871596,246000,76085,Weatherford,TX,19100.0,48367,Parker,4836793701,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-43,0.642023346303502,244300,75074,Plano,TX,19100.0,48085,Collin,4808593065,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-377,0.6381322957198443,242200,76205,Denton,TX,19100.0,48121,Denton,4812191010,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-53,0.6342412451361867,239900,75089,Rowlett,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-138,0.6284046692607004,236500,75240,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-359,0.6284046692607004,236500,76126,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-323,0.622568093385214,236400,76060,Kennedale,TX,19100.0,48439,Tarrant,4843990135,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-327,0.6186770428015564,234200,76066,Millsap,TX,19100.0,48367,Parker,4836794095,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-52,0.6147859922178989,232900,75088,Rowlett,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-286,0.6108949416342413,232000,76001,Arlington,TX,19100.0,48439,Tarrant,4843990135,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-70,0.6070038910505836,231400,75126,Forney,TX,19100.0,48257,Kaufman,4825791350,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-2,0.6011673151750972,230400,75006,Carrollton,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-102,0.6011673151750972,230400,75189,Royse City,TX,19100.0,48397,Rockwall,4839792800,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-38,0.5953307392996109,229600,75067,Lewisville,TX,19100.0,48121,Denton,4812192186,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-362,0.5914396887159533,229300,76131,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-373,0.5875486381322957,226000,76179,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-402,0.5836575875486382,225900,76266,Sanger,TX,19100.0,48121,Denton,4812193425,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-37,0.5797665369649806,225800,75065,Lake Dallas,TX,19100.0,48121,Denton,4812192186,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-398,0.5758754863813229,225400,76259,Ponder,TX,19100.0,48121,Denton,4812191970,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-392,0.5719844357976653,224200,76247,Justin,TX,19100.0,48121,Denton,4812191970,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-310,0.5680933852140078,222000,76039,Euless,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-311,0.5642023346303502,221300,76040,Euless,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-353,0.5603112840466926,218900,76116,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-24,0.556420233463035,218400,75044,Garland,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-293,0.5525291828793775,217900,76012,Arlington,TX,19100.0,48439,Tarrant,4843990135,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-154,0.5486381322957199,216000,75409,Anna,TX,19100.0,48085,Collin,4808590100,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-98,0.5447470817120622,215700,75173,Nevada,TX,19100.0,48085,Collin,4808592720,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-171,0.5408560311284046,215500,75442,Farmersville,TX,19100.0,48085,Collin,4808591295,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-297,0.5369649805447471,215100,76016,Arlington,TX,19100.0,48439,Tarrant,4843990135,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-89,0.5330739299610895,215000,75158,Scurry,TX,19100.0,48257,Kaufman,4825791985,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-294,0.5291828793774319,213400,76013,Arlington,TX,19100.0,48439,Tarrant,4843990135,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-85,0.5252918287937743,212100,75154,Red Oak,TX,19100.0,48139,Ellis,4813994090,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-304,0.5214007782101168,210200,76028,Burleson,TX,19100.0,48251,Johnson,4825190535,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-94,0.5175097276264592,209700,75165,Waxahachie,TX,19100.0,48139,Ellis,4813994090,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-374,0.5136186770428015,206600,76180,North Richland Hills,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-287,0.5097276264591439,204500,76002,Arlington,TX,19100.0,48439,Tarrant,4843990135,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-387,0.5058365758754864,204000,76234,Decatur,TX,19100.0,48497,Wise,4849790975,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-133,0.5019455252918288,200000,75234,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-309,0.4980544747081712,199700,76036,Crowley,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-394,0.49416342412451364,197200,76249,Krum,TX,19100.0,48121,Denton,4812193425,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-367,0.490272373540856,196800,76137,Fort Worth,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-355,0.48638132295719844,196500,76118,Fort Worth,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-298,0.48249027237354086,196000,76017,Arlington,TX,19100.0,48439,Tarrant,4843990135,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-65,0.4785992217898833,195900,75115,Desoto,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-153,0.47470817120622566,193800,75407,Princeton,TX,19100.0,48085,Collin,4808593150,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-134,0.4708171206225681,192700,75235,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-380,0.4669260700389105,192500,76209,Denton,TX,19100.0,48121,Denton,4812191010,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-100,0.46303501945525294,191400,75181,Mesquite,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-28,0.4591439688715953,191200,75052,Grand Prairie,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-60,0.45525291828793774,191000,75104,Cedar Hill,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-357,0.45136186770428016,190600,76120,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-376,0.4474708171206226,190400,76201,Denton,TX,19100.0,48121,Denton,4812191010,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-163,0.44357976653696496,189700,75424,Blue Ridge,TX,19100.0,48085,Collin,4808590350,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-73,0.4396887159533074,185600,75137,Duncanville,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-358,0.4357976653696498,184500,76123,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-64,0.43190661478599224,184300,75114,Crandall,TX,19100.0,48257,Kaufman,4825790875,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-325,0.4280155642023346,183500,76064,Maypearl,TX,19100.0,48139,Ellis,4813992490,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-72,0.42412451361867703,182600,75135,Caddo Mills,TX,19100.0,48231,Hunt,4823190565,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-329,0.42023346303501946,181600,76071,Newark,TX,19100.0,48497,Wise,4849790395,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-366,0.4163424124513619,180100,76135,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-300,0.41245136186770426,179900,76020,Azle,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-23,0.4085603112840467,179700,75043,Garland,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-319,0.4046692607003891,178000,76053,Hurst,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-302,0.40077821011673154,177800,76022,Bedford,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-303,0.3968871595330739,175800,76023,Boyd,TX,19100.0,48497,Wise,4849790395,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-35,0.39299610894941633,175700,75062,Irving,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-331,0.38910505836575876,175500,76078,Rhome,TX,19100.0,48497,Wise,4849790395,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-316,0.3852140077821012,174500,76050,Grandview,TX,19100.0,48251,Johnson,4825191625,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-382,0.38132295719844356,172400,76225,Alvord,TX,19100.0,48497,Wise,4849790060,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-132,0.377431906614786,172300,75233,Dallas,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-346,0.3735408560311284,167400,76108,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-20,0.36964980544747084,166900,75040,Garland,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-127,0.3657587548638132,165800,75228,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-299,0.35992217898832685,164800,76018,Arlington,TX,19100.0,48439,Tarrant,4843990135,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-443,0.35992217898832685,164800,76487,Poolville,TX,19100.0,48367,Parker,4836794100,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-332,0.3540856031128405,164700,76082,Springtown,TX,19100.0,48367,Parker,4836793701,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-78,0.35019455252918286,164300,75146,Lancaster,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-330,0.3463035019455253,163100,76073,Paradise,TX,19100.0,48497,Wise,4849790445,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-145,0.3424124513618677,161900,75249,Dallas,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-82,0.33852140077821014,161000,75150,Mesquite,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-296,0.3346303501945525,160300,76015,Arlington,TX,19100.0,48439,Tarrant,4843990135,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-429,0.33073929961089493,159500,76426,Bridgeport,TX,19100.0,48497,Wise,4849790445,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-90,0.32684824902723736,159100,75159,Seagoville,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-33,0.3229571984435798,158000,75060,Irving,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-152,0.31906614785992216,157500,75402,Greenville,TX,19100.0,48231,Hunt,4823191640,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-92,0.3151750972762646,156800,75161,Terrell,TX,19100.0,48257,Kaufman,4825793865,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-79,0.311284046692607,156100,75147,Mabank,TX,19100.0,48257,Kaufman,4825790653,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-34,0.30739299610894943,155500,75061,Irving,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-364,0.3035019455252918,155300,76133,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-26,0.29961089494163423,155100,75050,Grand Prairie,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-335,0.29571984435797666,154300,76086,Weatherford,TX,19100.0,48367,Parker,4836794095,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-135,0.2918287937743191,153100,75236,Dallas,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-22,0.28793774319066145,152000,75042,Garland,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-369,0.2840466926070039,151900,76148,Fort Worth,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-71,0.2801556420233463,151300,75134,Lancaster,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-21,0.27626459143968873,151000,75041,Garland,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-333,0.2723735408560311,148400,76084,Venus,TX,19100.0,48251,Johnson,4825190050,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-306,0.26848249027237353,148300,76033,Cleburne,TX,19100.0,48251,Johnson,4825190750,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-489,0.26459143968871596,148100,76651,Italy,TX,19100.0,48139,Ellis,4813991895,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-66,0.2607003891050584,147700,75116,Duncanville,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-67,0.25680933852140075,147600,75119,Ennis,TX,19100.0,48139,Ellis,4813991250,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-123,0.2529182879377432,147000,75224,Dallas,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-305,0.2490272373540856,146600,76031,Cleburne,TX,19100.0,48251,Johnson,4825190750,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-348,0.245136186770428,144100,76110,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-91,0.24124513618677043,142800,75160,Terrell,TX,19100.0,48257,Kaufman,4825793865,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-177,0.23735408560311283,142100,75453,Lone Oak,TX,19100.0,48231,Hunt,4823192260,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-430,0.23346303501945526,141300,76431,Chico,TX,19100.0,48497,Wise,4849790445,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-292,0.22957198443579765,139800,76011,Arlington,TX,19100.0,48439,Tarrant,4843990135,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-81,0.22568093385214008,139400,75149,Mesquite,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-321,0.22178988326848248,137500,76058,Joshua,TX,19100.0,48251,Johnson,4825190535,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-136,0.2178988326848249,136800,75237,Dallas,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-368,0.2140077821011673,135800,76140,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-350,0.21011673151750973,134800,76112,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-295,0.20622568093385213,134700,76014,Arlington,TX,19100.0,48439,Tarrant,4843990135,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-365,0.20233463035019456,134400,76134,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-131,0.19844357976653695,133500,75232,Dallas,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-122,0.19455252918287938,133000,75223,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-203,0.19066147859922178,132400,75496,Wolfe City,TX,19100.0,48231,Hunt,4823194270,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-31,0.1867704280155642,129200,75057,Lewisville,TX,19100.0,48121,Denton,4812192186,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-290,0.1828793774319066,127700,76009,Alvarado,TX,19100.0,48251,Johnson,4825190050,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-83,0.17898832684824903,125900,75152,Palmer,TX,19100.0,48139,Ellis,4813991310,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-126,0.17509727626459143,125300,75227,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-75,0.17120622568093385,124100,75142,Kaufman,TX,19100.0,48257,Kaufman,4825791985,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-113,0.16731517509727625,122100,75211,Dallas,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-354,0.16342412451361868,121200,76117,Haltom City,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-187,0.15953307392996108,119700,75474,Quinlan,TX,19100.0,48231,Hunt,4823193170,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-161,0.1556420233463035,119200,75422,Campbell,TX,19100.0,48231,Hunt,4823192260,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-27,0.1517509727626459,118700,75051,Grand Prairie,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-341,0.14785992217898833,117400,76103,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-99,0.14396887159533073,116800,75180,Balch Springs,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-291,0.14007782101167315,115700,76010,Arlington,TX,19100.0,48439,Tarrant,4843990135,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-69,0.13618677042801555,114900,75125,Ferris,TX,19100.0,48139,Ellis,4813991310,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-351,0.13229571984435798,113900,76114,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-322,0.12840466926070038,112900,76059,Keene,TX,19100.0,48251,Johnson,4825190750,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-114,0.1245136186770428,112500,75212,Dallas,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-349,0.12062256809338522,111900,76111,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-312,0.11673151750972763,109800,76041,Forreston,TX,19100.0,48139,Ellis,4813994090,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-105,0.11284046692607004,108600,75203,Dallas,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-162,0.10894941634241245,108300,75423,Celeste,TX,19100.0,48231,Hunt,4823190660,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-495,0.10505836575875487,101900,76670,Milford,TX,19100.0,48139,Ellis,4813991895,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-164,0.10116731517509728,99300,75428,Commerce,TX,19100.0,48231,Hunt,4823190820,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-139,0.09727626459143969,96700,75241,Dallas,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-151,0.0933852140077821,95000,75401,Greenville,TX,19100.0,48231,Hunt,4823191640,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-118,0.08949416342412451,94600,75217,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-344,0.08560311284046693,89800,76106,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-371,0.08171206225680934,88100,76164,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-339,0.07782101167315175,86200,76093,Rio Vista,TX,19100.0,48251,Johnson,4825190750,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-356,0.07392996108949416,84300,76119,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-342,0.07003891050583658,83800,76104,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-352,0.06614785992217899,83600,76115,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-116,0.0622568093385214,82000,75215,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-125,0.058365758754863814,81700,75226,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-343,0.054474708171206226,80800,76105,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-74,0.05058365758754864,80500,75141,Hutchins,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-117,0.04669260700389105,78100,75216,Dallas,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-97,0.042801556420233464,74300,75172,Wilmer,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-88,0.038910505836575876,70000,75157,Rosser,TX,19100.0,48257,Kaufman,4825790875,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-112,0.03501945525291829,69200,75210,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-148,0.0311284046692607,54400,75253,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-444,0.01556420233463035,-666666666,76490,Whitt,TX,19100.0,48367,Parker,4836794100,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-143,0.01556420233463035,-666666666,75247,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-109,0.01556420233463035,-666666666,75207,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-370,0.01556420233463035,-666666666,76155,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-360,0.01556420233463035,-666666666,76127,Naval Air Station JRB,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-361,0.01556420233463035,-666666666,76129,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
-146,0.01556420233463035,-666666666,75251,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+,median_household_income_2019_dollars_cbsa_percentile,median_household_income_2019_dollars,zip,town_name,state,cbsa_code,county_code,county_name,sub_county_code,cbsa_name,cbsa_category,csa_title,cbsa_states
+338,1.0,224265,76092,Southlake,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+307,0.996078431372549,171122,76034,Colleyville,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+10,0.9921568627450981,169473,75022,Flower Mound,TX,19100.0,48121,Denton,4812192186,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+124,0.9882352941176471,163935,75225,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+107,0.984313725490196,159076,75205,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+47,0.9803921568627451,155405,75078,Prosper,TX,19100.0,48085,Collin,4808590665,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+383,0.9764705882352941,151554,76226,Argyle,TX,19100.0,48121,Denton,4812191970,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+101,0.9725490196078431,143295,75182,Sunnyvale,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+393,0.9686274509803922,140982,76248,Keller,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+57,0.9647058823529412,140257,75094,Plano,TX,19100.0,48085,Collin,4808593065,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+6,0.9607843137254902,140098,75013,Allen,TX,19100.0,48085,Collin,4808593065,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+289,0.9568627450980393,137833,76008,Aledo,TX,19100.0,48367,Parker,4836794105,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+17,0.9529411764705882,136579,75035,Frisco,TX,19100.0,48085,Collin,4808592360,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+29,0.9490196078431372,136250,75054,Grand Prairie,TX,19100.0,48439,Tarrant,4843990135,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+14,0.9450980392156862,130075,75028,Flower Mound,TX,19100.0,48121,Denton,4812192186,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+7,0.9411764705882353,122033,75019,Coppell,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+318,0.9372549019607843,118864,76052,Haslet,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+13,0.9333333333333333,118725,75025,Plano,TX,19100.0,48085,Collin,4808593065,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+15,0.9294117647058824,118593,75032,Rockwall,TX,19100.0,48397,Rockwall,4839793665,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+399,0.9254901960784314,116663,76262,Roanoke,TX,19100.0,48121,Denton,4812191970,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+308,0.9215686274509803,116250,76035,Cresson,TX,19100.0,48221,Hood,4822191605,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+16,0.9176470588235294,116213,75034,Frisco,TX,19100.0,48085,Collin,4808592360,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+46,0.9137254901960784,115313,75077,Lewisville,TX,19100.0,48121,Denton,4812192186,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+56,0.9098039215686274,113428,75093,Plano,TX,19100.0,48085,Collin,4808593065,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+42,0.9058823529411765,113015,75071,McKinney,TX,19100.0,48085,Collin,4808592360,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+50,0.9019607843137255,112622,75082,Richardson,TX,19100.0,48085,Collin,4808593065,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+41,0.8980392156862745,108939,75070,McKinney,TX,19100.0,48085,Collin,4808592360,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+390,0.8941176470588236,108595,76244,Keller,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+178,0.8901960784313725,108487,75454,Melissa,TX,19100.0,48085,Collin,4808590100,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+25,0.8862745098039215,108258,75048,Sachse,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+4,0.8823529411764706,108000,75009,Celina,TX,19100.0,48085,Collin,4808590665,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+53,0.8784313725490196,107417,75089,Rowlett,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+128,0.8745098039215686,105606,75229,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+51,0.8705882352941177,105238,75087,Rockwall,TX,19100.0,48397,Rockwall,4839792855,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+1,0.8666666666666667,104501,75002,Allen,TX,19100.0,48085,Collin,4808593065,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+39,0.8627450980392157,103863,75068,Little Elm,TX,19100.0,48121,Denton,4812193035,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+12,0.8588235294117647,102030,75024,Plano,TX,19100.0,48085,Collin,4808593065,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+384,0.8549019607843137,102020,76227,Aubrey,TX,19100.0,48121,Denton,4812193035,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+95,0.8509803921568627,101150,75166,Lavon,TX,19100.0,48085,Collin,4808592720,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+320,0.8470588235294118,100271,76054,Hurst,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+96,0.8431372549019608,99868,75167,Waxahachie,TX,19100.0,48139,Ellis,4813994090,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+58,0.8392156862745098,99224,75098,Wylie,TX,19100.0,48085,Collin,4808593065,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+324,0.8352941176470589,99144,76063,Mansfield,TX,19100.0,48439,Tarrant,4843990135,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+372,0.8313725490196079,99018,76177,Fort Worth,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+111,0.8274509803921568,99003,75209,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+141,0.8235294117647058,97263,75244,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+381,0.8196078431372549,97070,76210,Denton,TX,19100.0,48121,Denton,4812192186,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+102,0.8156862745098039,96938,75189,Royse City,TX,19100.0,48397,Rockwall,4839792800,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+326,0.8117647058823529,96778,76065,Midlothian,TX,19100.0,48139,Ellis,4813992570,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+375,0.807843137254902,95657,76182,North Richland Hills,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+36,0.803921568627451,95310,75063,Irving,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+129,0.8,95119,75230,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+52,0.796078431372549,94946,75088,Rowlett,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+103,0.792156862745098,94872,75201,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+317,0.788235294117647,94212,76051,Grapevine,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+297,0.7843137254901961,94168,76016,Arlington,TX,19100.0,48439,Tarrant,4843990135,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+98,0.7803921568627451,93854,75173,Nevada,TX,19100.0,48085,Collin,4808592720,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+3,0.7764705882352941,93770,75007,Carrollton,TX,19100.0,48121,Denton,4812190637,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+392,0.7725490196078432,93722,76247,Justin,TX,19100.0,48121,Denton,4812191970,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+30,0.7686274509803922,93382,75056,The Colony,TX,19100.0,48121,Denton,4812193892,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+359,0.7647058823529411,93125,76126,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+362,0.7607843137254902,92830,76131,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+70,0.7568627450980392,92808,75126,Forney,TX,19100.0,48257,Kaufman,4825791350,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+373,0.7529411764705882,92773,76179,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+64,0.7490196078431373,92679,75114,Crandall,TX,19100.0,48257,Kaufman,4825790875,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+115,0.7450980392156863,92676,75214,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+104,0.7411764705882353,92500,75202,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+19,0.7372549019607844,92120,75039,Irving,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+336,0.7333333333333333,92029,76087,Weatherford,TX,19100.0,48367,Parker,4836794105,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+11,0.7294117647058823,91916,75023,Plano,TX,19100.0,48085,Collin,4808593065,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+287,0.7254901960784313,91413,76002,Arlington,TX,19100.0,48439,Tarrant,4843990135,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+119,0.7215686274509804,90522,75218,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+323,0.7176470588235294,89097,76060,Kennedale,TX,19100.0,48439,Tarrant,4843990135,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+100,0.7137254901960784,88990,75181,Mesquite,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+360,0.7098039215686275,88750,76127,Naval Air Station JRB,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+286,0.7058823529411765,87616,76001,Arlington,TX,19100.0,48439,Tarrant,4843990135,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+154,0.7019607843137254,87589,75409,Anna,TX,19100.0,48085,Collin,4808590100,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+379,0.6980392156862745,86735,76208,Denton,TX,19100.0,48121,Denton,4812192186,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+144,0.6941176470588235,86326,75248,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+5,0.6901960784313725,85777,75010,Carrollton,TX,19100.0,48121,Denton,4812190637,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+330,0.6862745098039216,85710,76073,Paradise,TX,19100.0,48497,Wise,4849790445,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+109,0.6823529411764706,85075,75207,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+358,0.6784313725490196,84147,76123,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+443,0.6745098039215687,83274,76487,Poolville,TX,19100.0,48367,Parker,4836794100,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+347,0.6705882352941176,83203,76109,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+49,0.6666666666666666,82848,75081,Richardson,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+394,0.6627450980392157,82551,76249,Krum,TX,19100.0,48121,Denton,4812193425,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+106,0.6588235294117647,81914,75204,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+304,0.6549019607843137,81439,76028,Burleson,TX,19100.0,48251,Johnson,4825190535,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+85,0.6509803921568628,81323,75154,Red Oak,TX,19100.0,48139,Ellis,4813994090,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+337,0.6470588235294118,80893,76088,Weatherford,TX,19100.0,48367,Parker,4836794100,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+28,0.6431372549019608,80799,75052,Grand Prairie,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+37,0.6392156862745098,80020,75065,Lake Dallas,TX,19100.0,48121,Denton,4812192186,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+44,0.6352941176470588,79627,75075,Plano,TX,19100.0,48085,Collin,4808593065,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+72,0.6313725490196078,79426,75135,Caddo Mills,TX,19100.0,48231,Hunt,4823190565,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+309,0.6274509803921569,78485,76036,Crowley,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+367,0.6235294117647059,77961,76137,Fort Worth,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+398,0.6196078431372549,77847,76259,Ponder,TX,19100.0,48121,Denton,4812191970,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+300,0.615686274509804,77359,76020,Azle,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+298,0.611764705882353,77109,76017,Arlington,TX,19100.0,48439,Tarrant,4843990135,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+402,0.6078431372549019,76741,76266,Sanger,TX,19100.0,48121,Denton,4812193425,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+60,0.6039215686274509,76528,75104,Cedar Hill,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+369,0.6,75926,76148,Fort Worth,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+146,0.596078431372549,75769,75251,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+301,0.592156862745098,75735,76021,Bedford,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+331,0.5882352941176471,75579,76078,Rhome,TX,19100.0,48497,Wise,4849790395,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+108,0.5843137254901961,75569,75206,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+120,0.5803921568627451,75476,75219,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+334,0.5764705882352941,75375,76085,Weatherford,TX,19100.0,48367,Parker,4836793701,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+313,0.5725490196078431,75317,76044,Godley,TX,19100.0,48251,Johnson,4825191540,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+73,0.5686274509803921,75298,75137,Duncanville,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+378,0.5647058823529412,74518,76207,Denton,TX,19100.0,48121,Denton,4812191010,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+299,0.5607843137254902,73760,76018,Arlington,TX,19100.0,48439,Tarrant,4843990135,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+340,0.5568627450980392,73563,76102,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+355,0.5529411764705883,73542,76118,Fort Worth,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+48,0.5490196078431373,73438,75080,Richardson,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+94,0.5450980392156862,73221,75165,Waxahachie,TX,19100.0,48139,Ellis,4813994090,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+332,0.5411764705882353,73056,76082,Springtown,TX,19100.0,48367,Parker,4836793701,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+203,0.5372549019607843,73011,75496,Wolfe City,TX,19100.0,48231,Hunt,4823194270,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+171,0.5333333333333333,72872,75442,Farmersville,TX,19100.0,48085,Collin,4808591295,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+24,0.5294117647058824,72101,75044,Garland,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+133,0.5254901960784314,72054,75234,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+0,0.5215686274509804,72050,75001,Addison,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+83,0.5176470588235295,71830,75152,Palmer,TX,19100.0,48139,Ellis,4813991310,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+333,0.5137254901960784,71375,76084,Venus,TX,19100.0,48251,Johnson,4825190050,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+65,0.5098039215686274,71292,75115,Desoto,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+293,0.5058823529411764,70569,76012,Arlington,TX,19100.0,48439,Tarrant,4843990135,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+346,0.5019607843137255,70450,76108,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+43,0.4980392156862745,70345,75074,Plano,TX,19100.0,48085,Collin,4808593065,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+69,0.49411764705882355,70192,75125,Ferris,TX,19100.0,48139,Ellis,4813991310,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+89,0.49019607843137253,69853,75158,Scurry,TX,19100.0,48257,Kaufman,4825791985,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+310,0.48627450980392156,69745,76039,Euless,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+153,0.4823529411764706,69672,75407,Princeton,TX,19100.0,48085,Collin,4808593150,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+152,0.47843137254901963,69632,75402,Greenville,TX,19100.0,48231,Hunt,4823191640,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+387,0.4745098039215686,69514,76234,Decatur,TX,19100.0,48497,Wise,4849790975,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+2,0.47058823529411764,69501,75006,Carrollton,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+163,0.4666666666666667,68795,75424,Blue Ridge,TX,19100.0,48085,Collin,4808590350,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+177,0.4627450980392157,68333,75453,Lone Oak,TX,19100.0,48231,Hunt,4823192260,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+147,0.4588235294117647,67928,75252,Dallas,TX,19100.0,48085,Collin,4808593065,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+345,0.4549019607843137,67844,76107,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+137,0.45098039215686275,67789,75238,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+316,0.4470588235294118,67271,76050,Grandview,TX,19100.0,48251,Johnson,4825191625,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+303,0.44313725490196076,66803,76023,Boyd,TX,19100.0,48497,Wise,4849790395,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+357,0.4392156862745098,66786,76120,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+397,0.43529411764705883,66713,76258,Pilot Point,TX,19100.0,48121,Denton,4812193035,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+23,0.43137254901960786,66461,75043,Garland,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+366,0.42745098039215684,66283,76135,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+110,0.4235294117647059,66230,75208,Dallas,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+162,0.4196078431372549,65700,75423,Celeste,TX,19100.0,48231,Hunt,4823190660,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+78,0.41568627450980394,65513,75146,Lancaster,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+67,0.4117647058823529,65304,75119,Ennis,TX,19100.0,48139,Ellis,4813991250,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+38,0.40784313725490196,65173,75067,Lewisville,TX,19100.0,48121,Denton,4812192186,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+20,0.403921568627451,64957,75040,Garland,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+329,0.4,64583,76071,Newark,TX,19100.0,48497,Wise,4849790395,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+302,0.396078431372549,63782,76022,Bedford,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+31,0.39215686274509803,63721,75057,Lewisville,TX,19100.0,48121,Denton,4812192186,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+90,0.38823529411764707,63297,75159,Seagoville,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+145,0.3843137254901961,63214,75249,Dallas,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+370,0.3803921568627451,62875,76155,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+374,0.3764705882352941,62595,76180,North Richland Hills,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+382,0.37254901960784315,62212,76225,Alvord,TX,19100.0,48497,Wise,4849790060,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+364,0.3686274509803922,62207,76133,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+327,0.36470588235294116,61801,76066,Millsap,TX,19100.0,48367,Parker,4836794095,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+311,0.3607843137254902,61768,76040,Euless,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+75,0.3568627450980392,61629,75142,Kaufman,TX,19100.0,48257,Kaufman,4825791985,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+26,0.35294117647058826,61441,75050,Grand Prairie,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+429,0.34901960784313724,61233,76426,Bridgeport,TX,19100.0,48497,Wise,4849790445,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+92,0.34509803921568627,61121,75161,Terrell,TX,19100.0,48257,Kaufman,4825793865,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+18,0.3411764705882353,61021,75038,Irving,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+296,0.33725490196078434,60986,76015,Arlington,TX,19100.0,48439,Tarrant,4843990135,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+40,0.3333333333333333,60955,75069,McKinney,TX,19100.0,48085,Collin,4808592360,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+430,0.32941176470588235,60449,76431,Chico,TX,19100.0,48497,Wise,4849790445,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+325,0.3254901960784314,59741,76064,Maypearl,TX,19100.0,48139,Ellis,4813992490,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+380,0.3215686274509804,59617,76209,Denton,TX,19100.0,48121,Denton,4812191010,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+33,0.3176470588235294,59539,75060,Irving,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+82,0.3137254901960784,59189,75150,Mesquite,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+290,0.30980392156862746,59103,76009,Alvarado,TX,19100.0,48251,Johnson,4825190050,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+294,0.3058823529411765,58887,76013,Arlington,TX,19100.0,48439,Tarrant,4843990135,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+489,0.30196078431372547,58427,76651,Italy,TX,19100.0,48139,Ellis,4813991895,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+321,0.2980392156862745,57874,76058,Joshua,TX,19100.0,48251,Johnson,4825190535,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+335,0.29411764705882354,57762,76086,Weatherford,TX,19100.0,48367,Parker,4836794095,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+91,0.2901960784313726,57740,75160,Terrell,TX,19100.0,48257,Kaufman,4825793865,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+35,0.28627450980392155,57320,75062,Irving,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+122,0.2823529411764706,57243,75223,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+305,0.2784313725490196,57237,76031,Cleburne,TX,19100.0,48251,Johnson,4825190750,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+149,0.27450980392156865,56902,75254,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+306,0.27058823529411763,56883,76033,Cleburne,TX,19100.0,48251,Johnson,4825190750,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+319,0.26666666666666666,56563,76053,Hurst,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+368,0.2627450980392157,56419,76140,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+348,0.25882352941176473,56389,76110,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+97,0.2549019607843137,55827,75172,Wilmer,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+132,0.25098039215686274,55393,75233,Dallas,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+363,0.24705882352941178,55330,76132,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+351,0.24313725490196078,55090,76114,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+365,0.23921568627450981,54835,76134,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+187,0.23529411764705882,53953,75474,Quinlan,TX,19100.0,48231,Hunt,4823193170,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+295,0.23137254901960785,53896,76014,Arlington,TX,19100.0,48439,Tarrant,4843990135,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+150,0.22745098039215686,53575,75287,Dallas,TX,19100.0,48121,Denton,4812190637,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+21,0.2235294117647059,53446,75041,Garland,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+125,0.2196078431372549,53405,75226,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+22,0.21568627450980393,53251,75042,Garland,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+161,0.21176470588235294,53000,75422,Campbell,TX,19100.0,48231,Hunt,4823192260,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+81,0.20784313725490197,52304,75149,Mesquite,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+71,0.20392156862745098,52265,75134,Lancaster,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+377,0.2,52101,76205,Denton,TX,19100.0,48121,Denton,4812191010,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+99,0.19607843137254902,51945,75180,Balch Springs,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+349,0.19215686274509805,51742,76111,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+88,0.18823529411764706,51250,75157,Rosser,TX,19100.0,48257,Kaufman,4825790875,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+138,0.1843137254901961,50767,75240,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+134,0.1803921568627451,50254,75235,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+288,0.17647058823529413,50077,76006,Arlington,TX,19100.0,48439,Tarrant,4843990135,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+34,0.17254901960784313,49695,75061,Irving,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+353,0.16862745098039217,49174,76116,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+495,0.16470588235294117,48472,76670,Milford,TX,19100.0,48139,Ellis,4813991895,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+354,0.1607843137254902,47473,76117,Haltom City,TX,19100.0,48439,Tarrant,4843992805,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+339,0.1568627450980392,47123,76093,Rio Vista,TX,19100.0,48251,Johnson,4825190750,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+121,0.15294117647058825,47003,75220,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+126,0.14901960784313725,46754,75227,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+113,0.1450980392156863,46226,75211,Dallas,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+341,0.1411764705882353,46196,76103,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+127,0.13725490196078433,46061,75228,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+350,0.13333333333333333,46009,76112,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+135,0.12941176470588237,45625,75236,Dallas,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+66,0.12549019607843137,45427,75116,Duncanville,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+140,0.12156862745098039,44542,75243,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+79,0.11764705882352941,44474,75147,Mabank,TX,19100.0,48257,Kaufman,4825790653,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+344,0.11372549019607843,44384,76106,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+371,0.10980392156862745,44257,76164,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+123,0.10588235294117647,43912,75224,Dallas,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+131,0.10196078431372549,43816,75232,Dallas,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+148,0.09803921568627451,43574,75253,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+292,0.09411764705882353,43350,76011,Arlington,TX,19100.0,48439,Tarrant,4843990135,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+142,0.09019607843137255,43153,75246,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+151,0.08627450980392157,43104,75401,Greenville,TX,19100.0,48231,Hunt,4823191640,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+130,0.08235294117647059,42541,75231,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+322,0.0784313725490196,42148,76059,Keene,TX,19100.0,48251,Johnson,4825190750,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+118,0.07450980392156863,41513,75217,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+27,0.07058823529411765,41455,75051,Grand Prairie,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+164,0.06666666666666667,40545,75428,Commerce,TX,19100.0,48231,Hunt,4823190820,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+114,0.06274509803921569,40024,75212,Dallas,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+352,0.058823529411764705,39225,76115,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+356,0.054901960784313725,39129,76119,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+291,0.050980392156862744,38461,76010,Arlington,TX,19100.0,48439,Tarrant,4843990135,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+343,0.047058823529411764,38436,76105,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+105,0.043137254901960784,37418,75203,Dallas,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+139,0.0392156862745098,35845,75241,Dallas,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+342,0.03529411764705882,35193,76104,Fort Worth,TX,19100.0,48439,Tarrant,4843991380,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+74,0.03137254901960784,34470,75141,Hutchins,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+376,0.027450980392156862,32704,76201,Denton,TX,19100.0,48121,Denton,4812191010,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+116,0.023529411764705882,31558,75215,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+136,0.0196078431372549,30638,75237,Dallas,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+444,0.01568627450980392,30521,76490,Whitt,TX,19100.0,48367,Parker,4836794100,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+117,0.011764705882352941,29448,75216,Dallas,TX,19100.0,48113,Dallas,4811393682,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+112,0.00784313725490196,26801,75210,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX
+143,0.00392156862745098,18245,75247,Dallas,TX,19100.0,48113,Dallas,4811392792,"Dallas-Fort Worth-Arlington, TX",Metropolitan Statistical Area,"Dallas-Fort Worth, TX-OK",TX

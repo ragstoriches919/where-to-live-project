@@ -4,7 +4,7 @@ import pandas as pd
 import cfg
 # import seaborn as sns
 
-import helpers_census
+import raw_data.census.helpers_census as helpers_census
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Helper Functions

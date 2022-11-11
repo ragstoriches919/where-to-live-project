@@ -11,7 +11,14 @@ def get_df_fhfa_data():
     return df_fhfa
 
 
-def get_cbsa_home_price_appreciation_estimate(year):
+def get_df_fhfa_home_price_appreciation_estimate_by_cbsa(year):
+
+    """
+    Since census data is lagged by a couple years, we can add a column that shows the FHFA's home price appreciation values for the missing quarters.
+    :param year: (int) Ex.) 2020
+    :return: DataFrame
+    """
+
     df_fhfa = get_df_fhfa_data()
     df_fhfa = df_fhfa.loc[df_fhfa["yr"]>year]
 
@@ -25,10 +32,5 @@ def get_cbsa_home_price_appreciation_estimate(year):
     df_hpa["hpa_nsa"] = (df_hpa["index_nsa_max"] / df_hpa["index_nsa_min"]) - 1
 
     return df_hpa
-
-
-
-df = get_cbsa_home_price_appreciation_estimate(2020)
-print(df)
 
 

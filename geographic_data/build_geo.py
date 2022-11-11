@@ -84,7 +84,7 @@ def get_df_zip_codes():
     return df_zip_codes
 
 
-def get_df_zip_to_cbsa():
+def get_df_zip_to_cbsa_code():
 
     """
     Get zip code to CBSA (core-based statistical area) data
@@ -104,6 +104,23 @@ def get_df_zip_to_cbsa():
     df_cbsa_best = df_cbsa_best.drop(columns = ["tot_ratio", "usps_zip_pref_city", "usps_zip_pref_state"])
 
     return df_cbsa_best
+
+
+def get_cbsa_name_from_zip(zcta):
+
+    """
+    Return the name of the CBSA
+    :param zcta: (str) Ex.) "06074"
+    :return: String Ex.) "Hartford-West Hartford-East Hartford, CT"
+    """
+
+    df_zips = get_df_zip_code_complete(use_csv=False)
+    cbsa_name = df_zips.loc[df_zips["zip"]==zcta]["cbsa_name"]
+
+    return cbsa_name
+
+
+
 
 
 def get_df_zip_to_county():
@@ -196,7 +213,7 @@ def get_df_zip_code_complete(use_csv=True):
         return df_geo
 
     df_zips = get_df_zip_codes()
-    df_zip_to_cbsa = get_df_zip_to_cbsa()
+    df_zip_to_cbsa = get_df_zip_to_cbsa_code()
     df_zip_to_county = get_df_zip_to_county()
     df_zip_to_sub_county = get_df_zip_to_sub_county() # May not have any real use case...
 
@@ -228,4 +245,6 @@ def get_df_zip_code_complete(use_csv=True):
 
 if __name__ == "__main__":
 
-    df = get_df_zip_code_complete(use_csv=False)
+    df = get_cbsa_from_zip("06074")
+
+

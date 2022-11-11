@@ -2,7 +2,7 @@ import raw_data.census.census_data as census
 import pandas as pd
 import numpy as np
 import cfg
-import income
+
 
 import geographic_data.build_geo as geo
 
@@ -54,5 +54,5 @@ if __name__ == "__main__":
     col_name = "median_household_income_2019_dollars"
     cbsa_name = "Worcester, MA-CT"
 
-    df_cbsa = helper_get_df_cbsa_percentile(2020, cbsa_name, income.get_df_median_income, col_name)
-    print(df_cbsa)
+    # df_cbsa = helper_get_df_cbsa_percentile(2020, cbsa_name, income.get_df_median_income, col_name)
+    # print(df_cbsa)
