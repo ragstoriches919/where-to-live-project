@@ -11,6 +11,8 @@ raw_data/voting/voting_data/*
 raw_data/voting/pickled_files/*
 raw_data/voting/test.csv
 raw_data/fbi/pickled_files/*
+raw_data/fhfa/test.csv
+
 
 helper_data/~$ZiptoZcta_Crosswalk_2021.xlsx
 

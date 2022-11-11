@@ -31,6 +31,9 @@ def get_df_fhfa_home_price_appreciation_estimate_by_cbsa(year):
     df_hpa["hpa_sa"] = (df_hpa["index_sa_max"] / df_hpa["index_sa_min"]) - 1
     df_hpa["hpa_nsa"] = (df_hpa["index_nsa_max"] / df_hpa["index_nsa_min"]) - 1
 
+    # df_hpa.to_csv("test.csv")
+
     return df_hpa
 
 
+df = get_df_fhfa_home_price_appreciation_estimate_by_cbsa(2020)
