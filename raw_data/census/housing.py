@@ -1,10 +1,11 @@
 import raw_data.census.census_data as census
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import pandas as pd
 import cfg
 # import seaborn as sns
 
 import raw_data.census.helpers_census as helpers_census
+import geographic_data.build_geo as geo
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Helper Functions
@@ -143,6 +144,53 @@ def get_df_median_home_price_percentile_cbsa(year, cbsa_name):
 
     return df_income_percentile_cbsa
 
+
+def get_df_median_home_price_percentile_state(year, state):
+    """
+    Returns income percentile by state
+    :param year: (int) Ex.) 2020
+    :param state: (str) Ex.) "CT"
+    :return: DataFrame
+    """
+
+    col_name = "median_home_value"
+    df_median_home_value_state = helpers_census.helper_get_df_state_percentile(year, state, get_df_median_home_value, col_name)
+    return df_median_home_value_state
+
+
+def get_df_housing_percentile_zip(year, zip):
+    """
+    Get income percentile by zip
+    :param year: (int) Ex.) 2020
+    :param zip: (str) Ex.) "06074"
+    :return: DataFrame
+    """
+
+    df_all_zips = geo.get_df_zip_code_complete(use_csv=True)
+    df_zip = df_all_zips.loc[df_all_zips["zip"] == zip]
+
+    # Get income percentiles relative to towns in the same state
+    state = df_zip["state"].iloc[0]
+    df_housing_state = get_df_median_home_price_percentile_state(year, state)
+    state_cols = helpers_census.list_diff(df_housing_state.columns, df_zip.columns) + ["zip"]
+    df_zip = pd.merge(df_zip, df_housing_state[state_cols], on="zip")
+
+    # Get income percentiles relative to towns in the same CBSA
+    cbsa_name = df_zip["cbsa_name"].iloc[0]
+    df_housing_cbsa = get_df_median_home_price_percentile_cbsa(year, cbsa_name)
+    cbsa_cols = helpers_census.list_diff(df_housing_cbsa.columns, df_zip.columns) + ["zip"]
+    df_zip = pd.merge(df_housing_cbsa[cbsa_cols], df_housing_state, on="zip", how="outer")
+
+    return df_zip
+
+
+def get_df_zcta_housing_summary(year, zip):
+
+    df_zip = get_df_housing_percentile_zip(year, zip)
+    df_zip = df_zip.loc[df_zip["zip"] == zip]
+
+    return df_zip
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Main
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -156,6 +204,8 @@ if __name__ == "__main__":
 
     cbsa = "Dallas-Fort Worth-Arlington, TX"
 
-    df = get_df_median_home_price_percentile_cbsa(2020, cbsa)
-    df.to_csv("test.csv")
+    df = get_df_zcta_housing_summary(2020, "03062")
+    print(df)
 
+    # df = helpers_census.helper_get_df_state_percentile(2020, "CT", get_df_median_home_value, "median_home_value")
+    # print(df)

@@ -11,15 +11,6 @@ import raw_data.census.helpers_census as helpers_census
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-def list_diff(list1, list2):
-    """
-    Returns columns that are in list1, but not in list2
-    (list1 minus list2)
-    :param list1: List
-    :param list2: List
-    :return: List
-    """
-    return list(set(list1) - set(list2))
 
 
 def get_df_income_percentages(df_income):
@@ -53,13 +44,13 @@ def get_df_income_percentile_zip(year, zip):
     # Get income percentiles relative to towns in the same state
     state = df_zip["state"].iloc[0]
     df_income_state = get_df_income_percentile_state(year, state)
-    state_cols = list_diff(df_income_state.columns, df_zip.columns) + ["zip"]
+    state_cols = helpers_census.list_diff(df_income_state.columns, df_zip.columns) + ["zip"]
     df_zip = pd.merge(df_zip, df_income_state[state_cols], on="zip" )
 
     # Get income percentiles relative to towns in the same CBSA
     cbsa_name = df_zip["cbsa_name"].iloc[0]
     df_income_cbsa = get_df_income_percentile_cbsa(year, cbsa_name)
-    cbsa_cols = list_diff(df_income_cbsa.columns, df_zip.columns) + ["zip"]
+    cbsa_cols = helpers_census.list_diff(df_income_cbsa.columns, df_zip.columns) + ["zip"]
     df_zip = pd.merge(df_income_cbsa[cbsa_cols], df_income_state, on="zip", how="outer")
     
     return df_zip
@@ -79,7 +70,7 @@ def get_df_income_percentile_state(year, state):
     # Percentile ranks for state the zip is in.
     groupby_cols = ["state"]
     df_income = get_df_median_income(year, state)
-    df_income["percentile_median_income_state"] = df_income.groupby(groupby_cols)["median_household_income_2019_dollars"].rank(pct=True)
+    df_income["percentile_state_median_household_income_2019_dollars"] = df_income.groupby(groupby_cols)["median_household_income_2019_dollars"].rank(pct=True)
 
     # Fix column order
     columns_order = list(set(df_income.columns) - set(df_zip.columns)) + list(df_zip.columns)
@@ -172,8 +163,8 @@ def get_df_income_by_cohort(year, state_abbrev, zcta=None):
 
 def get_df_zcta_income_summary(year, zip):
 
-    df_summary = get_df_income_percentile_zip(year, zip)
-    df_zip = df_summary.loc[df_summary["zip"] == zip]
+    df_zip = get_df_income_percentile_zip(year, zip)
+    df_zip = df_zip.loc[df_zip["zip"] == zip]
 
     return df_zip
 
@@ -186,5 +177,5 @@ def get_df_zcta_income_summary(year, zip):
 
 if __name__ == "__main__":
 
-    df = get_df_zcta_income_summary(2020, "06074")
+    df = get_df_zcta_income_summary(2020, "75075")
     print(df)
