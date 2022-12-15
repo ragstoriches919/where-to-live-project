@@ -3,8 +3,18 @@ import pandas as pd
 import numpy as np
 import cfg
 
-
 import geographic_data.build_geo as geo
+
+
+def list_diff(list1, list2):
+    """
+    Returns columns that are in list1, but not in list2
+    (list1 minus list2)
+    :param list1: List
+    :param list2: List
+    :return: List
+    """
+    return list(set(list1) - set(list2))
 
 
 def helper_get_df_cbsa_percentile(year, cbsa_name, func_median_for_state, str_col_name):
@@ -13,9 +23,9 @@ def helper_get_df_cbsa_percentile(year, cbsa_name, func_median_for_state, str_co
     Returns the income percentile of all towns in the given CBSA
     :param year: (int) Ex.) 2020
     :param cbsa_name: (str) Ex.) "Dallas-Fort Worth-Arlington, TX"
-    :param df_cbsa_calcs: (DataFrame) The DataFrame you want to compute CBSA percentiles for
-    :param str_col_name: (str) The col name to calculate the CBSA percentiles on Ex.) "median_household_income_2019_dollars"
-    :return:
+    :param func_median_for_state: (Function) The state function that we want to find the percentile for.
+    :param str_col_name: (str) The col name to groupby on.
+    :return: DataFrame
     """
 
     df_zip = geo.get_df_zip_code_complete(use_csv=True)
@@ -33,15 +43,39 @@ def helper_get_df_cbsa_percentile(year, cbsa_name, func_median_for_state, str_co
     # Calculate income percentiles
     df_cbsa = df_cbsa.loc[df_cbsa["cbsa_name"] == cbsa_name]
     groupby_cols = ["cbsa_name"]
-    df_cbsa[str_col_name + "_cbsa_percentile"] = df_cbsa.groupby(groupby_cols)[str_col_name].rank(pct=True)
+    df_cbsa["percentile_cbsa_" + str_col_name] = df_cbsa.groupby(groupby_cols)[str_col_name].rank(pct=True)
 
     # Fix column order
     columns_order = list(set(df_cbsa.columns) - set(df_zip.columns)) + list(df_zip.columns)
     df_cbsa = df_cbsa[columns_order]
-    df_cbsa = df_cbsa.sort_values(by=[str_col_name + "_cbsa_percentile"], ascending=False)
+    df_cbsa = df_cbsa.sort_values(by=["percentile_cbsa_" + str_col_name], ascending=False)
 
     return df_cbsa
 
+
+def helper_get_df_state_percentile(year, state, func_median_for_state, str_col_name):
+
+    """
+    Returns the income percentile of all towns in the given CBSA
+    :param year: (int) Ex.) 2020
+    :param state: (str) Ex.) "TX"
+    :param func_median_for_state: (Function) The state function that we want to find the percentile for.
+    :param str_col_name: (str) The col name to groupby on.
+    :return: DataFrame
+    """
+
+    df_zip = geo.get_df_zip_code_complete(use_csv=True)
+
+    # Percentile ranks for state the zip is in.
+    groupby_cols = ["state"]
+    df_median = func_median_for_state(year, state)
+    df_median["percentile_state_" + str_col_name] = df_median.groupby(groupby_cols)[str_col_name].rank(pct=True)
+
+    # Fix column order
+    columns_order = list(set(df_median.columns) - set(df_zip.columns)) + list(df_zip.columns)
+    df_median = df_median[columns_order]
+
+    return df_median
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -51,8 +85,10 @@ def helper_get_df_cbsa_percentile(year, cbsa_name, func_median_for_state, str_co
 
 if __name__ == "__main__":
 
-    col_name = "median_household_income_2019_dollars"
-    cbsa_name = "Worcester, MA-CT"
+    # col_name = "median_household_income_2019_dollars"
+    # cbsa_name = "Worcester, MA-CT"
 
     # df_cbsa = helper_get_df_cbsa_percentile(2020, cbsa_name, income.get_df_median_income, col_name)
     # print(df_cbsa)
+
+    df = helper_get_df_state_percentile(2020, "CT", )
