@@ -1,5 +1,5 @@
 import raw_data.census.census_data as census
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import pandas as pd
 import cfg
 # import seaborn as sns

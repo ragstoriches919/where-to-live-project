@@ -49,7 +49,7 @@ def get_stats_for_zip(year, state_abbrev, zcta):
 
 if __name__ == "__main__":
 
-    df = get_stats_for_zip(2020, "CT", "06074")
+    df = get_stats_for_zip(2020, "FL", "33558")
     print(df)
 
 

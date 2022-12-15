@@ -186,5 +186,5 @@ def get_df_zcta_income_summary(year, zip):
 
 if __name__ == "__main__":
 
-    df = get_df_zcta_income_summary(2020, "06074")
+    df = get_df_zcta_income_summary(2020, "33558")
     print(df)

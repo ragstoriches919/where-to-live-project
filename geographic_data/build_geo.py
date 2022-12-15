@@ -245,6 +245,7 @@ def get_df_zip_code_complete(use_csv=True):
 
 if __name__ == "__main__":
 
-    df = get_cbsa_from_zip("06074")
+    df = get_df_zip_code_complete("33558")
+
 
 
