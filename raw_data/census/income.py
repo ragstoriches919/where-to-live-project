@@ -11,8 +11,6 @@ import raw_data.census.helpers_census as helpers_census
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-
-
 def get_df_income_percentages(df_income):
 
     """
@@ -169,7 +167,6 @@ def get_df_zcta_income_summary(year, zip):
     return df_zip
 
 
-
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Main
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -177,4 +174,5 @@ def get_df_zcta_income_summary(year, zip):
 
 if __name__ == "__main__":
 
-    pass
+    df = get_df_zcta_income_summary(2020, "06074")
+    print(df)
